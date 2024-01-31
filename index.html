@@ -25,36 +25,118 @@
 
 <body>
   <wrapper class="wrapper">
-    <header class="header">
-      <div class="container_top">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="header_menu">
+    <header class="header box m-1 ">
+      <div class="header_top p-1">
+        <div class="container-fluid ">
+          <div class="row ">
+            <div class=" header_menu border-1 col-6">
+              <div class="header_menu_container d-flex ">
 
-                <i class="fa-solid fa-mobile-screen"></i>
-                this is menu
-              </div> <!-- header_menu -->
 
-            </div> <!-- col-md-4 -->
-            <div class="col-md-4">
-              <ul class="social_icons d-flex justify-content-center">
-                <li><a href="#"><i class="fa-brands fa-vk"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-              </ul>
-            </div> <!--  -->
-            <div class="col-md-4">
-              <div class="search d-flex justify-content-end">
-                поиск
-              </div> <!-- search -->
-            </div> <!-- col-md-4 -->
+                <nav class="navbar navbar-expand-md bg-primary">
+                  <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+                      aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-start" id="offcanvasNavbar" tabindex="-1">
+                      <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <ul class="navbar-nav ">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Предложить книгу</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Жанры</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">О нас</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                              aria-expanded="false" data-bs-auto-close="outside">
+                              Dropdown
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li class="nav-item dropend">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                  aria-expanded="false" data-bs-auto-close="outside">
+                                  Dropdown
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                </ul>
+                              </li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </li>
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+
+              </div> <!-- header_menu_container -->
+            </div> <!-- header_menu -->
+            <!-- <div class="col-md-4 social_icons d-none d-md-block ">
+              <div class="social_icons_container">
+                <ul class=" d-flex justify-content-center">
+                  <li><a href="#"><i class="fa-brands fa-vk"></i></a></li>
+                  <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                  <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                </ul>
+              </div> ssocial_icons_container -->
+            <!-- </div> social_icons -->
+            <div class=" search col-6">
+              <div class="search_container d-flex justify-content-end  ">
+                <form action="">
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="s" placeholder="Поиск" aria-label="Searching"
+                      aria-describedby="button-search">
+                    <button class="btn btn-light" type="submit" id="button-addon2">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </div>
+                </form>
+              </div> <!-- search_container -->
+            </div> <!-- search -->
           </div> <!-- row -->
         </div> <!-- container-fluid -->
       </div> <!-- container_top -->
+      <div class="header_midle  ">
+
+      </div>
     </header> <!-- header -->
-    <main class="main">main</main> <!--  -->
-    <footer class="footer">footer</footer> <!--  -->
+
+    <main class="main  border_black">
+      <div class="container-fluid">
+        <div class="row d-flex ">
+          <div class="col-md-9 border_black row row-cols-auto">
+            <div class="  box m-1 d-flex">awdaw</div>
+            <div class=""></div>
+            <div class=""></div>
+          </div>
+          <div class="col-md-3 d-flex border_black m-1 box ">right</div>
+        </div>
+      </div>
+    </main> <!-- main-->
+
+    <footer class="footer box m-1">
+      <div class="footer_cotainer">
+        footer
+      </div>
+    </footer> <!--  -->
   </wrapper>
 
 

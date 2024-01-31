@@ -1,35 +1,120 @@
 /* обнуление */
-ul{
+ul {
     list-style: none;
+    margin-bottom: 0;
+    padding: 0;
 }
 
+a{
+    color: black;
+    text-decoration: none;
+    transition: all .3s;
+}
 
+a:hover{
+    color: grey;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.form-control{
+    color: black;
+    border-radius: 0;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    border-color: yellow;
+}
 /* обнуление */
 
 /*  ОСНОНЫЕ */
 
-html, body{
+html,
+body {
+
     height: 100%;
 }
 
-body{
+body {
     min-width: 320px;
     font-family: "Roboto", sans-serif;
+    background-color: bisque;
 }
 
-.wrapper{
+.wrapper {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    max-width: 1400px;
+    
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-main.main{
+main.main {
     flex: 1 1 auto;
 }
 
+
+.border_black{
+    border: 1px solid black;
+}
+
+
+.box {
+    padding: 10px;
+    background-image: url("/assets/img/glass_black.png");
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    border-radius: 15px;
+    
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+    
+}
 /*  ОСНОНЫЕ */
 
-/* Header */
+/* Header  */
+
+.header{
+    
+
+}
+
+.header_top{
+    border-radius: 15px;
+    min-height: 400px;
+    background: url(/assets/img/header_img.webp) center center no-repeat; 
+    background-size: cover;
+    
+}
+.social_icons_container a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: aquamarine;
+    display: block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+
+
+.social_icons_container li {
+    margin: 0 5px 0 5px;
+}
 
 
 /* Header */
+
+/* body main*/
+
+/* body */
