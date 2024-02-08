@@ -323,6 +323,11 @@ main.main {
     font-size: 18px;
     text-indent: 20px;
 }
+
+.description_top__details{
+    flex: 1 1 auto;
+    
+}
 /* /details */
 /* sidebar */
 
