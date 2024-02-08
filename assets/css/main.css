@@ -451,19 +451,19 @@ main.main {
 } */
 
 .images-parralax__fon {
-    background: url("/assets/img/parallax/fon.jpg") center / cover no-repeat;
+    background: url("../assets/img/parallax/fon.jpg") center / cover no-repeat;
 
     top: 0;
 }
 
 .images-parralax__forest {
-    background: url("/assets/img/parallax/forest.png") top / cover no-repeat;
+    background: url("../assets/img/parallax/forest.png") top / cover no-repeat;
     top: 0%;
     z-index: 2;
 }
 
 .images-parralax__book {
-    background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+    background: url("../assets/img/parallax/book.png") bottom / contain no-repeat;
     background-size: 65%;
     top: 35%;
     left: -10%;
