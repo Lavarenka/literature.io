@@ -420,7 +420,7 @@ main.main {
 }
 
 
-.images-parralax__fon {
+/* .images-parralax__fon {
     background: url("/assets/img/parallax/fon.jpg") top / cover no-repeat;
     
     top: 0;
@@ -448,7 +448,70 @@ main.main {
     .images-parralax__book {
         background-position: 20% top;
     }
+} */
+
+.images-parralax__fon {
+    background: url("/assets/img/parallax/fon.jpg") center / cover no-repeat;
+
+    top: 0;
 }
+
+.images-parralax__forest {
+    background: url("/assets/img/parallax/forest.png") top / cover no-repeat;
+    top: 0%;
+    z-index: 2;
+}
+
+.images-parralax__book {
+    background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+    background-size: 65%;
+    top: 35%;
+    left: -10%;
+    z-index: 3;
+
+}
+
+@media (max-width: 1300px) {
+    .images-parralax__book {
+        background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+        background-size: 65%;
+        top: 25%;
+        left: -10%;
+        z-index: 3;
+    
+    }
+}
+
+@media (max-width: 1100px) {
+    .images-parralax__book {
+        background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+        /*background-size: 60%;*/
+        top: 20%;
+        left: -10%;
+        z-index: 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .images-parralax__book {
+        background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+        /*background-size: 60%;*/
+        top: 10%;
+        left: -10%;
+        z-index: 3;
+    }
+}
+
+@media (max-width: 400px) {
+    .images-parralax__book {
+        background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+        /*background-size: 60%;*/
+        top: 5%;
+        left: -10%;
+        z-index: 3;
+    }
+}
+
 
 
 

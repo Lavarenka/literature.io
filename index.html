@@ -26,14 +26,14 @@
 <body>
   <wrapper class="wrapper">
 
-
-    <div class="box mb-2">
+    <!-- ########### nav_bar ############################ -->
+    <container class="nav_bar box mb-2">
       <div class="box_lvl p-2">
         <div class="container-fluid ">
           <div class="row ">
             <div class=" header_menu border-1 col-6">
               <div class="header_menu_container d-flex ">
-                <nav class="navbar navbar-expand-md bg-primary">
+                <nav class="navbar navbar-expand-xl bg-primary">
                   <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                       data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
@@ -59,29 +59,76 @@
                           <li class="nav-item">
                             <a class="nav-link" href="#">О нас</a>
                           </li>
-                          <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                              aria-expanded="false" data-bs-auto-close="outside">
-                              Dropdown
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li class="nav-item dropend">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                  aria-expanded="false" data-bs-auto-close="outside">
-                                  Dropdown
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
-                                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                                </ul>
-                              </li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                          </li>
+
                         </ul>
-                      </div>
+                        <hr>
+                        <div class="d-block d-xl-none box_lvl p-2 mb-2  ">
+                          <p>Авторизция</p>
+                          <hr>
+                          <form>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Email address</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Password</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                        </div>
+                        
+                        <div class="d-block d-xl-none box_lvl p-2">
+                          <div class="text-center ">Последние книги</div>
+                          <hr>
+                          <div class="favorites_items">
+                            <div class="favorites_item d-flex align-items-center mb-2 ">
+                              <div class="favorites_image me-1 d-flex"><img
+                                  src="/assets/img/books/books_preview/kr2bfo46ow.jpg" alt=""></div>
+                              <div class="favorites_title"><a href="">
+                                  S.T.A.L.K.E.R. 01. Тумановский
+                                  Ежи и Дядищев
+                                  Александр - Тени Чернобыля. Клык
+                                </a></div>
+                            </div>
+                            <div class="favorites_item d-flex align-items-center mb-2  ">
+                              <div class="favorites_image me-1"><img src="/assets/img/books/books_preview/fon.jpg"
+                                  alt="">
+                              </div>
+                              <div class="favorites_title"><a href="">
+                                  Орехов Василий - Зона поражения
+                                </a></div>
+                            </div>
+                            <div class="favorites_item d-flex align-items-center mb-2  ">
+                              <div class="favorites_image me-1"><img
+                                  src="/assets/img/books/books_preview/kr2bfo46ow.jpg" alt=""></div>
+                              <div class="favorites_title"><a href="">
+                                  Зона поражения
+                                </a></div>
+                            </div>
+                            <div class="favorites_item d-flex align-items-center mb-2  ">
+                              <div class="favorites_image me-1"><img
+                                  src="/assets/img/books/books_preview/07g9k0los8.jpg" alt=""></div>
+                              <div class="favorites_title"><a href="">
+                                  S.T.A.L.K.E.R. 13. Калугин Алексей - Мечта на поражение
+                                </a></div>
+                            </div>
+                            <div class="favorites_item d-flex align-items-center mb-2  ">
+                              <div class="favorites_image me-1"><img
+                                  src="/assets/img/books/books_preview/mpidivxsgn.jpg" alt=""></div>
+                              <div class="favorites_title"><a href="">
+                                  S.T.A.L.K.E.R. 01. Тумановский Ежи и Дядищев Александр - Тени Чернобыля. Клык
+                                </a></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> <!-- offcanvas-body -->
                     </div>
                   </div>
                 </nav>
@@ -104,15 +151,10 @@
           </div> <!-- row -->
         </div> <!-- container-fluid -->
       </div>
-    </div>
+    </container> <!-- nav_bar -->
+    <!-- ########### /nav_bar ############################ -->
 
-
-
-
-
-
-    
-
+    <!-- ########### header ############################ -->
     <header class="header box mb-2 parallax">
       <div class="parallax__body rounded">
         <div class="header_top  p-1   parallax__container ">
@@ -166,7 +208,7 @@
               <div class="offcanvas-body">
                 <div class="d-flex  sidebar_container">
                   <div class="sidebar_container_row d-flex flex-column  ">
-   
+
                     <div class="border sidebar_genre box_lvl mb-2 p-2">
                       <div class="">
                         <div class="text-center ">Жанры</div>
@@ -544,6 +586,7 @@
           <container class="col d-flex box sidebar 	d-none d-xl-block">
             <div class="d-flex  sidebar_container">
               <div class="sidebar_container_row d-flex flex-column  ">
+                <!-- ### Авторизация ### -->
                 <div class=" sidebar_authorization  box_lvl mb-2 p-2">
                   <form>
                     <div class="mb-3">
@@ -562,7 +605,10 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
 
-                </div>
+                </div> <!-- sidebar_authorization -->
+                <!-- ### /Авторизация ### -->
+
+                <!-- ### Жанры ### -->
                 <div class="border sidebar_genre box_lvl mb-2 p-2">
                   <div class="">
                     <div class="text-center ">Жанры</div>
@@ -646,6 +692,9 @@
                     </div>
                   </div>
                 </div>
+                <!-- ### /Жанры ### -->
+
+                <!-- ### Избранное ### -->
                 <div class="border box_lvl sidebar_favorites p-2">
                   <div class="">
                     <div class="text-center ">Последние книги</div>
@@ -691,7 +740,9 @@
                     </div>
                   </div>
                 </div>
-              </div> <!-- -->
+                <!-- ### /Избранное ### -->
+
+              </div> <!-- sidebar_container_row-->
             </div> <!-- sidebar_container-->
           </container> <!-- sidebar-->
           <!-- ######## /sidebar ########## -->
