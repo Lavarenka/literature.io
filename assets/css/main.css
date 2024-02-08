@@ -504,7 +504,7 @@ main.main {
 
 @media (max-width: 400px) {
     .images-parralax__book {
-        background: url("..img/parallax/book.png") bottom / contain no-repeat;
+        background: url("../img/parallax/book.png") bottom / contain no-repeat;
         /*background-size: 60%;*/
         top: 5%;
         left: -10%;
