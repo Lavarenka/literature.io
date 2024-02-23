@@ -169,7 +169,7 @@ main.main {
 
 .box {
     padding: 10px;
-    background-image: url("/assets/img/glass_black.png");
+    background-image: url("../img/glass_black.png");
     background-position-x: initial;
     background-position-y: initial;
     background-size: initial;
@@ -231,9 +231,10 @@ main.main {
 /* Header */
 
 /* body main*/
-.breadcrumb{
+.breadcrumb {
     margin: 0;
 }
+
 .progress_bar {}
 
 .progress_bar_contaoner {}
@@ -256,9 +257,10 @@ main.main {
 }
 
 
-.index_breadcrumb{
+.index_breadcrumb {
     min-height: 30px;
 }
+
 /* body */
 
 
@@ -270,17 +272,18 @@ main.main {
     flex: 1 1 auto;
 }
 
-.item_books__header{
+.item_books__header {
     font-size: 18px;
     font-weight: bold;
-    
+
 }
 
-.item_books__image{
-   width: 175px;
-   height: 250px; 
+.item_books__image {
+    width: 175px;
+    height: 250px;
 }
-.item_books__image img{
+
+.item_books__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -293,51 +296,87 @@ main.main {
 }
 
 /*  */
+
+
+/* details */
+.details_title {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+
+.img__details {
+    /* width: 275px;
+    height: 450px;  */
+}
+
+.img__details img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top__details {}
+
+
+.header__details > p{
+    font-size: 18px;
+    text-indent: 20px;
+}
+
+.description_top__details{
+    flex: 1 1 auto;
+    
+}
+/* /details */
 /* sidebar */
 
-.badge{
+.badge {
     border: 1px solid black;
     color: black;
 }
 
-.genre_item_p{
+.genre_item_p {
     position: relative;
-    
-    
+
+
     flex: 1 1 auto;
 }
-.genre_item_p::after{
+
+.genre_item_p::after {
     position: absolute;
     content: "";
-    
+
     width: 95%;
     height: 0;
     top: 100%;
     left: 0;
     border-top: 1px dashed black;
 }
-.sidebar_authorization{
 
-}
-.sidebar_container{
+.sidebar_authorization {}
+
+.sidebar_container {
     min-height: 100%;
 }
+
 .sidebar_container_row {
     min-width: 100%;
 
-   
+
 }
-.sidebar_genre{
+
+.sidebar_genre {
     flex: 1 1 auto;
 }
 
-.favorites_image{
+.favorites_image {
     position: relative;
     min-width: 25px;
     min-height: 50px;
 }
 
-.favorites_image img{
+.favorites_image img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -451,19 +490,19 @@ main.main {
 } */
 
 .images-parralax__fon {
-    background: url("../assets/img/parallax/fon.jpg") center / cover no-repeat;
+    background: url("../img/parallax/fon.jpg") center / cover no-repeat;
 
     top: 0;
 }
 
 .images-parralax__forest {
-    background: url("../assets/img/parallax/forest.png") top / cover no-repeat;
+    background: url("../img/parallax/forest.png") top / cover no-repeat;
     top: 0%;
     z-index: 2;
 }
 
 .images-parralax__book {
-    background: url("../assets/img/parallax/book.png") bottom / contain no-repeat;
+    background: url("../img/parallax/book.png") bottom / contain no-repeat;
     background-size: 65%;
     top: 35%;
     left: -10%;
@@ -473,18 +512,18 @@ main.main {
 
 @media (max-width: 1300px) {
     .images-parralax__book {
-        background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+        background: url("../img/parallax/book.png") bottom / contain no-repeat;
         background-size: 65%;
         top: 25%;
         left: -10%;
         z-index: 3;
-    
+
     }
 }
 
 @media (max-width: 1100px) {
     .images-parralax__book {
-        background: url("../assets/img/parallax/book.png") bottom / contain no-repeat;
+        background: url("../img/parallax/book.png") bottom / contain no-repeat;
         /*background-size: 60%;*/
         top: 20%;
         left: -10%;
@@ -494,7 +533,7 @@ main.main {
 
 @media (max-width: 600px) {
     .images-parralax__book {
-        background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+        background: url("../img/parallax/book.png") bottom / contain no-repeat;
         /*background-size: 60%;*/
         top: 10%;
         left: -10%;
@@ -504,7 +543,7 @@ main.main {
 
 @media (max-width: 400px) {
     .images-parralax__book {
-        background: url("/assets/img/parallax/book.png") bottom / contain no-repeat;
+        background: url("../img/parallax/book.png") bottom / contain no-repeat;
         /*background-size: 60%;*/
         top: 5%;
         left: -10%;
@@ -522,7 +561,7 @@ main.main {
 .rating-area {
     overflow: hidden;
     min-width: 140px;
-    
+
 }
 
 .rating-area:not(:checked)>input {
