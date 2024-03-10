@@ -32,6 +32,8 @@ class Genre(models.Model):
 
     class Meta:
         ordering = ['title']
+        verbose_name = 'Жанр'  # название блога в админке
+        verbose_name_plural = 'Жанры'  # название блога в админке во множественном числе
 
 
 
@@ -44,6 +46,8 @@ class Series(models.Model):
 
     class Meta:
         ordering = ['title']
+        verbose_name = 'Серия (Цикл)'  # название блога в админке
+        verbose_name_plural = 'Серии (Цикл)'  # название блога в админке во множественном числе
 
 
 class Author(models.Model):
@@ -55,6 +59,8 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['title']
+        verbose_name = 'Автор'  # название блога в админке
+        verbose_name_plural = 'Авторы'  # название блога в админке во множественном числе
 
 class Post(models.Model):
     """
@@ -81,11 +87,11 @@ class Post(models.Model):
     score = models.IntegerField(default=0, validators=[
         MaxValueValidator(5),
         MinValueValidator(0),
-    ])
+    ], verbose_name='Рейтинг')
     genre = models.ManyToManyField(Genre, related_name='posts',
                                    verbose_name='Жанры')
-    series = models.ForeignKey(Series, on_delete=models.PROTECT, related_name='posts',
-                               verbose_name='Серии книг')  # связываем категории, PROTECT запрещает удаление если есть посты
+    series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='posts',
+                               verbose_name='Серии книг', blank=True)  # связываем категории, PROTECT запрещает удаление если есть посты
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='authors',
                                verbose_name='Автор')
     is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)),
@@ -96,6 +102,8 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-time_create']
+        verbose_name = 'Статья'  # название блога в админке
+        verbose_name_plural = 'Статьи'  # название блога в админке во множественном числе
 
 
 class Comment(models.Model):
