@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block title %}{{ title }} {% endblock %}
 
 
-{% block content %}
 
-    <!-- ######## index ########## -->
-    <container class="col-xl-9 box me-2 d-flex flex-column index">
+
+
+    {% block content %}
 
         <!-- ### Хлебные крошки  жанры ### -->
         <div class="d-flex  mb-2 box_lvl p-1 index_breadcrumb d-none d-xl-block">
@@ -58,7 +59,7 @@
             <div class="main_content_container p-1 ">
                 <div class="container">
                     <div class="row">
-                        <div class=" text-center">Жанр: Хоррор</div>
+                        <div class=" text-center">Жанр: {{ title }}</div>
                         <hr>
                     </div>
                 </div>
@@ -73,9 +74,9 @@
                                     <h2 class="item_books__header d-block d-md-none text-center"><a
                                             href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
                                     <div class="item_books__image  justify-content-center border_black">
-                                        {% if i.photo %}
+                                        {% if post.photo_preview %}
                                             <a href="book.html"><img
-                                                    src="{{ post.photo.url }}"
+                                                    src="{{ post.photo_preview.url }}"
                                                     alt=""></a>
                                         {% else %}
                                             <a href="book.html"><img
@@ -146,31 +147,7 @@
             </div>
         </div>
         <!-- ### /main_content ### -->
-        <!-- ### пагинация ### -->
-        <div class=" box_lvl p-1">
-            <div class="d-flex justify-content-center">
-                <nav aria-label="Page navigation example ">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
 
-        </div>
-        <!-- ### /пагинация ### -->
-    </container> <!-- index -->
-    <!-- ######## /index ########## -->
+    {% endblock content %}
 
-{% endblock content %}
+
