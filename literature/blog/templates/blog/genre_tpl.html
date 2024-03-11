@@ -1,0 +1,10 @@
+{# берем из genre.py #}
+<ul class="genre_items_ul genre_menu {{ genre_class }}">
+    {%  for item in genres %}
+    <li class="list-group-item d-flex justify-content-between align-items-center mb-2 ">
+        <div class="me-2 "><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+        <div class="genre_item_p"></div>
+        <span class="badge">14</span>
+    </li>
+    {%  endfor genres %}
+</ul>

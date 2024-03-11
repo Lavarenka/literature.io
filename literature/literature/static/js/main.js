@@ -1,6 +1,10 @@
 "use strict"
 
+
+
 window.onload = function () {
+
+
     const parallax = document.querySelector('.parallax');
 
     if (parallax) {
@@ -51,3 +55,4 @@ window.onload = function () {
 
     }
 }
+

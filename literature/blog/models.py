@@ -1,5 +1,6 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -23,12 +24,23 @@ genre, series, number_series, author, year, views, comment, rating
 """
 
 
+class PublishedManager(models.Manager):
+    """
+    возвращает все опубликованные статьи
+    """
+
+    def get_queryset(self):
+        return super().get_queryset().filter(is_published=Post.Status.PUBLICHED)
+
 class Genre(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, verbose_name='url', unique=True)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('genre', kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['title']
@@ -88,17 +100,26 @@ class Post(models.Model):
         MaxValueValidator(5),
         MinValueValidator(0),
     ], verbose_name='Рейтинг')
-    genre = models.ManyToManyField(Genre, related_name='posts',
+    genre = models.ManyToManyField(Genre, related_name='genre',
                                    verbose_name='Жанры')
-    series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='posts',
+    series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='series',
                                verbose_name='Серии книг', blank=True)  # связываем категории, PROTECT запрещает удаление если есть посты
-    author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='authors',
+    author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='author',
                                verbose_name='Автор')
     is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)),
                                        default=Status.PUBLICHED, verbose_name='Статус')
 
+
+    objects = models.Manager()
+    published = PublishedManager()  # вызываем класс со статьями опубликованными  , класс прописан Выше
+
+
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        # post - маршрут в урлах
+        return reverse('post', kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['-time_create']

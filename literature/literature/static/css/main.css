@@ -147,6 +147,9 @@ body {
     background-color: bisque;
 }
 
+.active{
+    color: red;
+}
 .wrapper {
     min-height: 100%;
     display: flex;
