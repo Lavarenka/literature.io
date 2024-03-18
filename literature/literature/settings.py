@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 from django.conf.global_settings import STATIC_ROOT, STATICFILES_DIRS
 

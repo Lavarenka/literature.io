@@ -21,6 +21,10 @@ Post:
 title , slug, content, created_at, edit_at, photo_preview, photo_post, photo_header, 
 genre, series, number_series, author, year, views, comment, rating
 
+
+
+db_index=True // индексирует поле , более быстрое для поиска 
+null=True // проставляет пустые поля , для связей
 """
 
 
@@ -50,7 +54,7 @@ class Genre(models.Model):
 
 
 class Series(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, db_index=True, verbose_name='Серия')
     slug = models.SlugField(max_length=255, verbose_name='url', unique=True)
 
     def __str__(self):
@@ -76,8 +80,9 @@ class Author(models.Model):
 
 class Post(models.Model):
     """
-
-
+    auto_now_add / заполняется автоматом только после создания
+    auto_now / заполняется автоматом после каждого сохранения
+    посмотреть filefild
     """
 
     class Status(models.IntegerChoices):
@@ -106,6 +111,7 @@ class Post(models.Model):
                                verbose_name='Серии книг', blank=True)  # связываем категории, PROTECT запрещает удаление если есть посты
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='author',
                                verbose_name='Автор')
+    # is_published = models.BooleanField(default=True)
     is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)),
                                        default=Status.PUBLICHED, verbose_name='Статус')
 
@@ -122,7 +128,10 @@ class Post(models.Model):
         return reverse('post', kwargs={"slug": self.slug})
 
     class Meta:
-        ordering = ['-time_create']
+        """
+        для адмнки
+        """
+        ordering = ['-time_create'] # сартирует и в админке и на сайте
         verbose_name = 'Статья'  # название блога в админке
         verbose_name_plural = 'Статьи'  # название блога в админке во множественном числе
 

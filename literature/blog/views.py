@@ -38,7 +38,14 @@ class PostGenre(ListView):
         return context
 
 
+def PostSeries(request):
+    series = Post.published.filter(series__slug=Post.pk)
+
+
 class GetPost(DetailView):
+    """
+    Вывод Поста
+    """
     model = Post
     template_name = 'blog/single.html'
     context_object_name = 'post'

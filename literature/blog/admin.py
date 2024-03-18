@@ -11,6 +11,8 @@ from .models import *
     list_editable // возможность редоктирования не входя в статью
     РЕДАКТИРУЕМОЕ ПОЛЕ НЕ МОЖЕТ БЫТЬ КЛИКАБЕЛЬНЫМ
     list_per_page // пагинация, отображение статей на админку
+    search_fields // поиск в базе 
+    list_filter // фильтр
 """
 
 
@@ -36,6 +38,8 @@ class PostAdmin(admin.ModelAdmin):
     list_editable = ('is_published', )
     readonly_fields = ['views', 'score']
     list_display_links = ('id', 'title')
+    search_fields = ('title', )
+    list_filter = ('is_published', )
 
     save_on_top = True  # кнопки сохранить сверху и снизу
 
