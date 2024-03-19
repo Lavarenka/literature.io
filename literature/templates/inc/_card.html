@@ -26,7 +26,6 @@
                         {% for g in post.genre.all %}
                             <a href="{{ g.get_absolute_url }}">{{ g.title }}</a>
                         {% endfor %}
-
                     </p>
                     {% if post.series %}
                         <p>Серия: <a href="{{ post.series.get_absolute_url }}">{{ post.series }}</a></p>
