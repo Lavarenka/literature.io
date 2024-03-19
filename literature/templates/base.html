@@ -1,4 +1,6 @@
 {% load static %}
+{% load genre %}
+
 
 <!doctype html>
 <html lang="en">
@@ -61,6 +63,9 @@
             <div class="main_container_row row d-flex flex-row">
                 <!-- ######## index ########## -->
                 <container class="col-xl-9 box me-2 d-flex flex-column index">
+
+
+
                     {% block content %}
                     {% endblock content %}
 
@@ -107,7 +112,7 @@
                                     <div class="text-center ">Жанры</div>
                                     <hr>
                                     <div class="genre_items">
-                                        {% load genre %}
+
                                         {% show_genre %}
 
                                     </div>

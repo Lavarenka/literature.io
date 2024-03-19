@@ -1,0 +1,71 @@
+{% load static %}
+{% load genre %}
+
+{% for post in posts %}
+    <div class="">
+        <div
+                class="col  books_item item_books d-flex align-items-center flex-md-row flex-column align-items-md-stretch p-2">
+            <h2 class="item_books__header d-block d-md-none text-center"><a
+                    href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+            <div class="item_books__image  justify-content-center border_black">
+                {% if post.photo_preview %}
+                    <a href="{{ post.get_absolute_url }}"><img
+                            src="{{ post.photo_preview.url }}"
+                            alt=""></a>
+                {% else %}
+                    <a href="{{ post.get_absolute_url }}"><img
+                            src="{% static 'img/no_product.jpg' %}"
+                            alt=""></a>
+                {% endif %}
+            </div>
+            <div class="item_books__description p-2 d-flex flex-column">
+                <div class="item_books_UP">
+                    <h2 class="item_books__header d-none d-md-block"><a
+                            href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                    <p>Жанр:
+                        {% for g in post.genre.all %}
+                            <a href="{{ g.get_absolute_url }}">{{ g.title }}</a>
+                        {% endfor %}
+
+                    </p>
+                    {% if post.series %}
+                        <p>Серия: <a href="#">{{ post.series }}</a></p>
+                    {% endif %}
+
+                    <p>Номер книги в серии: {{ post.number_series }}</p>
+                    <p>Автор: <a href="#">{{ post.author }}</a></p>
+                    <p>Год: {{ post.year }}</p>
+                </div>
+                <button class="btn d-block d-sm-none border_black"><a
+                        href="book.html">Подробнее</a>
+                </button>
+                <div class="item_books_down d-none d-sm-flex justify-content-between ">
+                    <div class="d-flex align-items-center">
+                        <div class="pe-3"><i
+                                class="fa-regular fa-clock"></i>{{ post.time_create|date:"d-m-Y H:i" }}
+                        </div>
+                        <div class="pe-3"><i class="fa-regular fa-comment-dots"></i> 3
+                        </div>
+                        <div class="pe-3"><i class="fa-solid fa-eye"></i> {{ post.views }}</div>
+                        <div class="rating-area ">
+                            <input type="radio" id="star-5" name="rating" value="5">
+                            <label for="star-5" title="Оценка «5»"></label>
+                            <input type="radio" id="star-4" name="rating" value="4">
+                            <label for="star-4" title="Оценка «4»"></label>
+                            <input type="radio" id="star-3" name="rating" value="3">
+                            <label for="star-3" title="Оценка «3»"></label>
+                            <input type="radio" id="star-2" name="rating" value="2">
+                            <label for="star-2" title="Оценка «2»"></label>
+                            <input type="radio" id="star-1" name="rating" value="1">
+                            <label for="star-1" title="Оценка «1»"></label>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button class="btn"><a href="{{ post.get_absolute_url }}">Поддробнее</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="mb-2">
+    </div>
+{% endfor %}

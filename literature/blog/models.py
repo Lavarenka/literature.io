@@ -124,6 +124,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
+        # метод для вызова ссылки на пост по слагу
         # post - маршрут в урлах
         return reverse('post', kwargs={"slug": self.slug})
 

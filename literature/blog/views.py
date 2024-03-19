@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponseNotFound
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .models import *
 from django.db.models import F
@@ -20,11 +21,15 @@ class Home(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Главная'
+        context['subtitle'] = 'Вся литература'
         return context
 
 
 class PostGenre(ListView):
-    template_name = 'blog/index.html'
+    """
+    жанры
+    """
+    template_name = 'blog/genre.html'
     context_object_name = 'posts'
     paginate_by = 3
     allow_empty = False # ошибка при пустой категории
@@ -59,3 +64,14 @@ class GetPost(DetailView):
         self.object.save()
         self.object.refresh_from_db()
         return context
+
+
+def page_not_found(request, exception):
+    """
+
+    обработчик 404
+    в настройках выключить дебаг
+    нужно прописать handler404 = page_not_found в общих урлах
+    """
+    # return HttpResponseNotFound("<h1>Страница не найдена</h1>")
+    return redirect('/')

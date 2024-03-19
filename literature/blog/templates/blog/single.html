@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load genre %}
 
 {% block title %}{{ title }} {% endblock %}
 
@@ -49,7 +49,7 @@
                             <div class="text-center ">Жанры</div>
                             <hr>
                             <div class="genre_items">
-                                {% load genre %}
+
                                 {% show_genre %}
                             </div>
                         </div>

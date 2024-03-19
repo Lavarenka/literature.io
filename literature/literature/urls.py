@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from blog.views import page_not_found
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
@@ -29,3 +31,7 @@ if settings.DEBUG:
     # для отображения файлов в режиме отдладки
 
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# обработчик 404
+handler404 = page_not_found
