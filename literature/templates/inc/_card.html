@@ -29,7 +29,7 @@
 
                     </p>
                     {% if post.series %}
-                        <p>Серия: <a href="#">{{ post.series }}</a></p>
+                        <p>Серия: <a href="{{ post.series.get_absolute_url }}">{{ post.series }}</a></p>
                     {% endif %}
 
                     <p>Номер книги в серии: {{ post.number_series }}</p>

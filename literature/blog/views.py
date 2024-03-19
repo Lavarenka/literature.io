@@ -29,10 +29,10 @@ class PostGenre(ListView):
     """
     жанры
     """
-    template_name = 'blog/genre.html'
+    template_name = 'blog/index.html'
     context_object_name = 'posts'
     paginate_by = 3
-    allow_empty = False # ошибка при пустой категории
+    allow_empty = False  # ошибка при пустой категории
 
     def get_queryset(self):
         return Post.published.filter(genre__slug=self.kwargs['slug'])
@@ -40,11 +40,27 @@ class PostGenre(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = Genre.objects.get(slug=self.kwargs['slug'])
+        context['subtitle'] = 'Жанры'
         return context
 
 
-def PostSeries(request):
-    series = Post.published.filter(series__slug=Post.pk)
+class PostSeries(ListView):
+    """
+    серии книг
+    """
+    template_name = 'blog/index.html'
+    context_object_name = 'posts'
+    paginate_by = 3
+    allow_empty = False  # ошибка при пустой категории
+
+    def get_queryset(self):
+        return Post.published.filter(series__slug=self.kwargs['slug']).order_by('number_series')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = Series.objects.get(slug=self.kwargs['slug'])
+        context['subtitle'] = 'Серия книг'
+        return context
 
 
 class GetPost(DetailView):
@@ -60,6 +76,7 @@ class GetPost(DetailView):
         для количества просмотров
         """
         context = super().get_context_data(**kwargs)
+
         self.object.views = F('views') + 1
         self.object.save()
         self.object.refresh_from_db()

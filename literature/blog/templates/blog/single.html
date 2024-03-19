@@ -5,9 +5,6 @@
 {% block title %}{{ title }} {% endblock %}
 
 
-
-
-
 {% block content %}
 
     <!-- ### Хлебные крошки  жанры ### -->
@@ -15,13 +12,19 @@
         <nav aria-label="">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
-                {#                <li class="breadcrumb-item"><a href="#"></a></li>#}
-                {% with post.genre.all as genre %}
-                    {% for g in genre %}
+
+                {% if post.series %}
+                	<li class="breadcrumb-item"><a href="{{ post.series.get_absolute_url }}">{{ post.series }}</a></li>
+                {% endif %}
+
+                {% comment %}
+                    {% for g in post.genre.all %}
                         <li class="breadcrumb-item"><a href="{{ g.get_absolute_url }}">{{ g.title }}</a></li>
 
                     {% endfor %}
-                {% endwith %}
+                {% endcomment %}
+
+
 
                 <li class="breadcrumb-item">{{ post.title }}</li>
             </ol>
@@ -33,6 +36,7 @@
             Жанры
         </button>
     </div>
+    <!-- # жанры канвас # -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
          aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
@@ -59,6 +63,8 @@
             </div> <!-- sidebar_container-->
         </div>
     </div>
+    <!-- # /жанры канвас # -->
+
     <!-- ### /Хлебные крошки  жанры ### -->
 
     <!-- ### main_content ### -->
@@ -84,15 +90,15 @@
 
                                 <p>
                                     Жанр:
-                                    {% with post.genre.all as genre %}
-                                        {% for g in genre %}
+
+                                        {% for g in post.genre.all %}
 
                                             <a href="{{ g.get_absolute_url }}">{{ g.title }}</a>
                                         {% endfor %}
-                                    {% endwith %}
+
                                 </p>
                                 {% if post.series %}
-                                    <p>Серия: <a href="#">{{ post.series }}</a></p>
+                                    <p>Серия: <a href="{{ post.series.get_absolute_url }}">{{ post.series }}</a></p>
                                 {% endif %}
 
 

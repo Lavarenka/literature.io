@@ -60,6 +60,11 @@ class Series(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        # метод для вызова ссылки на пост по слагу
+        # series - маршрут в урлах
+        return reverse('series', kwargs={"slug": self.slug})
+
     class Meta:
         ordering = ['title']
         verbose_name = 'Серия (Цикл)'  # название блога в админке
