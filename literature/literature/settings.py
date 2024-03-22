@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "debug_toolbar",  # дебагер
     'blog.apps.BlogConfig',  # подключаем приложение
+    'add_books.apps.AddBooksConfig',  # подключаем приложение
 
 ]
 

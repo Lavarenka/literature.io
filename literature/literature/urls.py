@@ -24,6 +24,7 @@ from blog.views import page_not_found
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('add_book/', include('add_books.urls')), # добавить книгу
     path("__debug__/", include("debug_toolbar.urls")), # дебагер
 ]
 
