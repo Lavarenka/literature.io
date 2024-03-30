@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+
+
+@admin.register(AddBook)  # регистрация приложения
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'mail', 'created_at', 'is_published')
+    

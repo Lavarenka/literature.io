@@ -30,6 +30,7 @@
 <body>
 <wrapper class="wrapper">
 
+
     <!-- ########### nav_bar ############################ -->
     {% include 'inc/_header.html' %}
     <!-- ########### /nav_bar ############################ -->
@@ -63,7 +64,6 @@
             <div class="main_container_row row d-flex flex-row">
                 <!-- ######## index ########## -->
                 <container class="col-xl-9 box me-2 d-flex flex-column index">
-
 
 
                     {% block content %}
@@ -187,6 +187,17 @@
     <!-- ########### footer ############################ -->
     {% include 'inc/_footer.html' %}
     <!-- ########### /footer ############################ -->
+
+
+{% if messages %}
+    {% for message in messages %}
+        <script defer>
+            alert('{{ message }}');
+        </script>
+    {% endfor %}
+{% endif %}
+
+
 </wrapper>
 
 
@@ -194,6 +205,11 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <script src=" {% static "js/main.js" %} "></script>
+
+
+
+
+
 </body>
 
 </html>

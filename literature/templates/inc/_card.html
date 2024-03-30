@@ -43,7 +43,7 @@
                         <div class="pe-3"><i
                                 class="fa-regular fa-clock"></i>{{ post.time_create|date:"d-m-Y H:i" }}
                         </div>
-                        <div class="pe-3"><i class="fa-regular fa-comment-dots"></i> 3
+                        <div class="pe-3"><i class="fa-regular fa-comment-dots"></i> {{ post.comment.all|length }}
                         </div>
                         <div class="pe-3"><i class="fa-solid fa-eye"></i> {{ post.views }}</div>
                         <div class="rating-area ">

@@ -151,3 +151,6 @@ class Comment(models.Model):
     content = models.TextField(verbose_name='Текст')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     com = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment')
+
+    def __str__(self):
+        return self.name

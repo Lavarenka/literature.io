@@ -12,10 +12,15 @@ Genre / Series / Author / Post / Comment
 class Home(ListView):
     model = Post
     template_name = 'blog/index.html'
-    context_object_name = 'posts'
+    context_object_name = 'posts' # имя к которому обращатся в html
     paginate_by = 3
 
     def get_queryset(self):
+        """
+        фильтр
+
+        """
+        # return Post.objects.filter(is_published=True)
         return Post.published.all()
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -35,6 +40,8 @@ class PostGenre(ListView):
     allow_empty = False  # ошибка при пустой категории
 
     def get_queryset(self):
+        print(self.kwargs)
+
         return Post.published.filter(genre__slug=self.kwargs['slug'])
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -66,10 +73,12 @@ class PostSeries(ListView):
 class GetPost(DetailView):
     """
     Вывод Поста
+    пост выводится с помощью get_absolute_url
     """
     model = Post
     template_name = 'blog/single.html'
     context_object_name = 'post'
+    allow_empty = False  # ошибка если пустой пост
 
     def get_context_data(self, *, object_list=None, **kwargs):
         """
