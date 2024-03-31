@@ -1,3 +1,7 @@
+{% load static %}
+{% load popular_post %}
+
+
 <container class="nav_bar box mb-2">
     <div class="box_lvl p-2">
         <div class="container-fluid ">
@@ -24,7 +28,7 @@
                                                 <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Главная</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{%  url 'add_book' %}">Предложить книгу</a>
+                                                <a class="nav-link" href="{% url 'add_book' %}">Предложить книгу</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">Жанры</a>
@@ -64,54 +68,9 @@
                                         </div>
 
                                         <div class="d-block d-xl-none box_lvl p-2">
-                                            <div class="text-center ">Последние книги</div>
+                                            <div class="text-center ">Популярные книги</div>
                                             <hr>
-                                            <div class="favorites_items">
-                                                <div class="favorites_item d-flex align-items-center mb-2 ">
-                                                    <div class="favorites_image me-1 d-flex"><img
-                                                            src="assets/img/books/books_preview/kr2bfo46ow.jpg" alt="">
-                                                    </div>
-                                                    <div class="favorites_title"><a href="">
-                                                        S.T.A.L.K.E.R. 01. Тумановский
-                                                        Ежи и Дядищев
-                                                        Александр - Тени Чернобыля. Клык
-                                                    </a></div>
-                                                </div>
-                                                <div class="favorites_item d-flex align-items-center mb-2  ">
-                                                    <div class="favorites_image me-1"><img
-                                                            src="assets/img/books/books_preview/fon.jpg"
-                                                            alt="">
-                                                    </div>
-                                                    <div class="favorites_title"><a href="">
-                                                        Орехов Василий - Зона поражения
-                                                    </a></div>
-                                                </div>
-                                                <div class="favorites_item d-flex align-items-center mb-2  ">
-                                                    <div class="favorites_image me-1"><img
-                                                            src="assets/img/books/books_preview/kr2bfo46ow.jpg" alt="">
-                                                    </div>
-                                                    <div class="favorites_title"><a href="">
-                                                        Зона поражения
-                                                    </a></div>
-                                                </div>
-                                                <div class="favorites_item d-flex align-items-center mb-2  ">
-                                                    <div class="favorites_image me-1"><img
-                                                            src="assets/img/books/books_preview/07g9k0los8.jpg" alt="">
-                                                    </div>
-                                                    <div class="favorites_title"><a href="">
-                                                        S.T.A.L.K.E.R. 13. Калугин Алексей - Мечта на поражение
-                                                    </a></div>
-                                                </div>
-                                                <div class="favorites_item d-flex align-items-center mb-2  ">
-                                                    <div class="favorites_image me-1"><img
-                                                            src="assets/img/books/books_preview/mpidivxsgn.jpg" alt="">
-                                                    </div>
-                                                    <div class="favorites_title"><a href="">
-                                                        S.T.A.L.K.E.R. 01. Тумановский Ежи и Дядищев Александр - Тени
-                                                        Чернобыля. Клык
-                                                    </a></div>
-                                                </div>
-                                            </div>
+                                            {% get_popular 5 %}
                                         </div>
                                     </div> <!-- offcanvas-body -->
                                 </div>
@@ -122,16 +81,15 @@
                 </div> <!-- header_menu -->
                 <div class=" search col-6">
                     <div class="search_container d-flex justify-content-end  ">
-                        <form action="">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="s" placeholder="Поиск"
-                                       aria-label="Searching"
-                                       aria-describedby="button-search">
-                                <button class="btn btn-light" type="submit" id="button-addon2">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </button>
-                            </div>
+
+
+                        <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
+                            <input class="form-control me-2" type="text" placeholder="Search" name="s"
+                                   aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
+
+
                     </div> <!-- search_container -->
                 </div> <!-- search -->
             </div> <!-- row -->

@@ -78,6 +78,11 @@ class Author(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        # метод для вызова ссылки на пост по слагу
+        # series - маршрут в урлах
+        return reverse('author', kwargs={"slug": self.slug})
+
     class Meta:
         ordering = ['title']
         verbose_name = 'Автор'  # название блога в админке
@@ -145,9 +150,11 @@ class Post(models.Model):
 class Comment(models.Model):
     """создаем коменты и подключаем к посту
         нужно еще добавить дату
+
     """
 
     name = models.CharField(max_length=100, verbose_name='Имя пользователя')
+
     content = models.TextField(verbose_name='Текст')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     com = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment')

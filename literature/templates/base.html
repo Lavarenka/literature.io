@@ -1,5 +1,6 @@
 {% load static %}
 {% load genre %}
+{% load popular_post %}
 
 
 <!doctype html>
@@ -120,57 +121,15 @@
                                 <!-- ### /Жанры ### -->
 
                                 <!-- ### Избранное ### -->
-                                <div class="border box_lvl sidebar_favorites p-2">
+                                <div class="border  sidebar_favorites p-2">
                                     <div class="">
-                                        <div class="text-center ">Последние книги</div>
+                                        <div class="text-center ">Популярные книги</div>
                                         <hr>
-                                        <div class="favorites_items">
-                                            <div class="favorites_item d-flex align-items-center mb-2 ">
-                                                <div class="favorites_image me-1 d-flex"><img
-                                                        src="assets/img/books/books_preview/kr2bfo46ow.jpg" alt="">
-                                                </div>
-                                                <div class="favorites_title"><a href="">
-                                                    S.T.A.L.K.E.R. 01. Тумановский
-                                                    Ежи и Дядищев
-                                                    Александр - Тени Чернобыля. Клык
-                                                </a></div>
-                                            </div>
-                                            <div class="favorites_item d-flex align-items-center mb-2  ">
-                                                <div class="favorites_image me-1"><img
-                                                        src="assets/img/books/books_preview/fon.jpg" alt="">
-                                                </div>
-                                                <div class="favorites_title"><a href="">
-                                                    Орехов Василий - Зона поражения
-                                                </a></div>
-                                            </div>
-                                            <div class="favorites_item d-flex align-items-center mb-2  ">
-                                                <div class="favorites_image me-1"><img
-                                                        src="assets/img/books/books_preview/kr2bfo46ow.jpg"
-                                                        alt=""></div>
-                                                <div class="favorites_title"><a href="">
-                                                    Зона поражения
-                                                </a></div>
-                                            </div>
-                                            <div class="favorites_item d-flex align-items-center mb-2  ">
-                                                <div class="favorites_image me-1"><img
-                                                        src="assets/img/books/books_preview/07g9k0los8.jpg"
-                                                        alt=""></div>
-                                                <div class="favorites_title"><a href="">
-                                                    S.T.A.L.K.E.R. 13. Калугин Алексей - Мечта на поражение
-                                                </a></div>
-                                            </div>
-                                            <div class="favorites_item d-flex align-items-center mb-2  ">
-                                                <div class="favorites_image me-1"><img
-                                                        src="assets/img/books/books_preview/mpidivxsgn.jpg"
-                                                        alt=""></div>
-                                                <div class="favorites_title"><a href="">
-                                                    S.T.A.L.K.E.R. 01. Тумановский Ежи и Дядищев Александр - Тени
-                                                    Чернобыля. Клык
-                                                </a></div>
-                                            </div>
-                                        </div>
+                                        {% get_popular 5 %}
                                     </div>
                                 </div>
+
+                                <!-- 5: кол-во постов -->
                                 <!-- ### /Избранное ### -->
 
                             </div> <!-- sidebar_container_row-->
@@ -189,15 +148,6 @@
     <!-- ########### /footer ############################ -->
 
 
-{% if messages %}
-    {% for message in messages %}
-        <script defer>
-            alert('{{ message }}');
-        </script>
-    {% endfor %}
-{% endif %}
-
-
 </wrapper>
 
 
@@ -206,8 +156,13 @@
         crossorigin="anonymous"></script>
 <script src=" {% static "js/main.js" %} "></script>
 
-
-
+{% if messages %}
+    {% for message in messages %}
+        <script defer>
+            alert('{{ message }}');
+        </script>
+    {% endfor %}
+{% endif %}
 
 
 </body>

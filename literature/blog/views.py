@@ -1,6 +1,9 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
+
+from .forms import CommentForm
 from .models import *
 from django.db.models import F
 
@@ -51,6 +54,26 @@ class PostGenre(ListView):
         return context
 
 
+class PostAuthor(ListView):
+    """
+    Автор
+    """
+    template_name = 'blog/index.html'
+    context_object_name = 'posts'
+    paginate_by = 3
+    allow_empty = False  # ошибка при пустой категории
+
+    def get_queryset(self):
+        print(self.kwargs)
+
+        return Post.published.filter(author__slug=self.kwargs['slug'])
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = Author.objects.get(slug=self.kwargs['slug'])
+        context['subtitle'] = 'Автор'
+        return context
+
 class PostSeries(ListView):
     """
     серии книг
@@ -89,6 +112,49 @@ class GetPost(DetailView):
         self.object.views = F('views') + 1
         self.object.save()
         self.object.refresh_from_db()
+        context['form'] = CommentForm
+        return context
+
+
+class CommentBook(SuccessMessageMixin, CreateView):
+
+    form_class = CommentForm # форма
+
+    # template_name = 'blog/single.html'
+    # success_url = '/' # редирект на главную после отправки формы
+
+    success_message = "Комментарий отправлен"
+
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['title'] = 'Предложить книгу'
+    #
+    #     return context
+
+    def form_valid(self, form):
+        form.instance.com_id = self.kwargs.get("pk")
+        self.object = form.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        """действе после отправки комента , остается на странице"""
+
+        return self.object.com.get_absolute_url()
+
+class Search(ListView):
+    template_name = "blog/search.html"
+    context_object_name = "posts"
+    paginate_by = 3
+
+
+    def get_queryset(self):
+        return Post.published.filter(title__icontains=self.request.GET.get("s"))
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['title'] = 'Поиск'
+        context['s'] = f"s={self.request.GET.get('s')}&"
         return context
 
 

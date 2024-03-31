@@ -1,0 +1,30 @@
+{% load static %}
+
+
+<div class="favorites_items container">
+
+             {% for post in posts %}
+                <div class=" rowfavorites_item d-flex align-items-center mb-2 ">
+
+
+                    <div class="item_books_popular__image col-2 me-2 border_black">
+                        {% if post.photo_preview %}
+                            <a href="{{ post.get_absolute_url }}"><img
+                                    src="{{ post.photo_preview.url }}"
+                                    alt=""></a>
+                        {% else %}
+                            <a href="{{ post.get_absolute_url }}"><img
+                                    src="{% static 'img/no_product.jpg' %}"
+                                    alt=""></a>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="favorites_title col"><a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a></div>
+                </div>
+            {% endfor %}
+
+
+</div>

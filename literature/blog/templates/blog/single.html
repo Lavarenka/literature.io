@@ -73,7 +73,7 @@
 
 
                                 <p>Номер книги в серии: {{ post.number_series }}</p>
-                                <p>Автор: <a href="#">{{ post.author }}</a></p>
+                                <p>Автор: <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></p>
                                 <p>Год: {{ post.year }}</p>
                             </div>
 
@@ -122,20 +122,23 @@
                         Дядищев Александр
                         - Тени Чернобыля. Клык:
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label"></label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label"></label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                  placeholder="Оставьте комментарий" rows="3"></textarea>
-                    </div>
+
+                    <hr>
+                    <form action="{% url 'create_comment' pk=post.id %}" method="post">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        {{ form.non_field.errors }}
+                        {#        общие ошибки      #}
+
+                        <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+                    </form>
+
+
                     <div class="">Комментарии:</div>
                     <hr>
                     {% if post.comment.all %}
-
                         {% for com in post.comment.all %}
                             <div class="card mb-2">
                                 <div class="card-header">
@@ -163,5 +166,8 @@
     <!-- ### /main_content ### -->
 
 {% endblock content %}
+
+
+
 
 

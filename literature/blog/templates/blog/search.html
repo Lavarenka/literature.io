@@ -34,7 +34,7 @@
         <div class="main_content_container p-1 ">
             <div class="container">
                 <div class="row">
-                    <div class=" text-center m-2">{{ subtitle }}: &nbsp {{ title }}</div>
+                    <div class=" text-center m-2">{{ title }}</div>
 
                     <hr>
                 </div>
@@ -42,10 +42,14 @@
 
             <div class="container books">
                 <div class="books_row row">
+                    {% if posts %}
+                        <!-- ### CARD_1 ### -->
+                        {% include 'inc/_card.html' %}
+                        <!-- ### /CARD_1 ### -->
+                    {% else %}
+                        <div class="box_lvl p-2 text-center fs-3">Ничего не найдено</div>
+                    {% endif %}
 
-                    <!-- ### CARD_1 ### -->
-                    {% include 'inc/_card.html' %}
-                    <!-- ### /CARD_1 ### -->
 
                 </div>
             </div>
