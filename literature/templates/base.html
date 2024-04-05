@@ -65,7 +65,19 @@
             <div class="main_container_row row d-flex flex-row">
                 <!-- ######## index ########## -->
                 <container class="col-xl-9 box me-2 d-flex flex-column index">
-
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tags == 'error' %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% else %}
+                                <div class="alert alert-{{ message.tags }}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
 
                     {% block content %}
                     {% endblock content %}
@@ -81,29 +93,33 @@
                 <container class="col d-flex box sidebar d-none d-xl-block">
                     <div class="d-flex  sidebar_container">
                         <div class="sidebar_container_row d-flex flex-column  ">
+
                             <!-- ### Авторизация ### -->
                             <div class=" sidebar_authorization  box_lvl mb-2 p-2">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               aria-describedby="emailHelp">
-                                        <div id="emailHelp" class="form-text">We'll never share your email with
-                                            anyone
-                                            else.
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
-                                    </div>
-                                    <div class="mb-3 form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                {#                                <form>#}
+                                {#                                    <div class="mb-3">#}
+                                {#                                        <label for="exampleInputEmail1" class="form-label">Email address</label>#}
+                                {#                                        <input type="email" class="form-control" id="exampleInputEmail1"#}
+                                {#                                               aria-describedby="emailHelp">#}
+                                {#                                        <div id="emailHelp" class="form-text">We'll never share your email with#}
+                                {#                                            anyone#}
+                                {#                                            else.#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="mb-3">#}
+                                {#                                        <label for="exampleInputPassword1" class="form-label">Password</label>#}
+                                {#                                        <input type="password" class="form-control" id="exampleInputPassword1">#}
+                                {#                                    </div>#}
+                                {##}
+                                {#                                    <button type="submit" class="btn btn-primary">Авторизация</button>#}
+                                {#                                </form>#}
 
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" type="button"><a href="{% url 'register' %}">Регистрация</a>
+                                    </button>
+                                    <button class="btn btn-primary" type="button"><a href="{% url 'login' %}">Авторизация</a>
+                                    </button>
+                                </div>
                             </div> <!-- sidebar_authorization -->
                             <!-- ### /Авторизация ### -->
 
@@ -156,13 +172,13 @@
         crossorigin="anonymous"></script>
 <script src=" {% static "js/main.js" %} "></script>
 
-{% if messages %}
-    {% for message in messages %}
-        <script defer>
-            alert('{{ message }}');
-        </script>
-    {% endfor %}
-{% endif %}
+{#{% if messages %}#}
+{#    {% for message in messages %}#}
+{#        <script defer>#}
+{#            alert('{{ message }}');#}
+{#        </script>#}
+{#    {% endfor %}#}
+{#{% endif %}#}
 
 
 </body>
