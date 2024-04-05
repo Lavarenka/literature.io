@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('add_book/', include('add_books.urls')), # добавить книгу
+    path('users/', include('users.urls', namespace="users")), # добавить книгу/ namespace="users" пространство имен
     path("__debug__/", include("debug_toolbar.urls")), # дебагер
 ]
 

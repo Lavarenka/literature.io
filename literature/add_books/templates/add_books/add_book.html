@@ -47,8 +47,7 @@
                             {% comment %}
                                 {{ form.as_p }}
                             {% endcomment %}
-                            {{ form.non_field.errors }}
-                            {#        общие ошибки      #}
+                            {{ form.non_field_errors }} {#        общие ошибки      #}
                             <div class="mb-3">
                                 <label for="{{ form.title.id_for_label }}" class="form-label">Login</label>
                                 {{ form.title }}

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import STATIC_ROOT, STATICFILES_DIRS
+from django.conf.global_settings import STATIC_ROOT, STATICFILES_DIRS, LOGOUT_REDIRECT_URL
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "debug_toolbar",  # дебагер
     'blog.apps.BlogConfig',  # подключаем приложение
     'add_books.apps.AddBooksConfig',  # подключаем приложение
+    'users.apps.UsersConfig',  # подключаем приложение
 
 ]
 
@@ -140,3 +141,5 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+
