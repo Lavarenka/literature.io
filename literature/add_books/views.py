@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import NewsForm
@@ -21,7 +22,10 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 
 
-class AddBook(SuccessMessageMixin, CreateView):
+class AddBook( SuccessMessageMixin , CreateView):
+    """
+    LoginRequiredMixin // не пускает и делает редирект для неавторизованного пользователя
+    """
     form_class = NewsForm # форма
     template_name = 'add_books/add_book.html'
     success_url = '/' # редирект на главную после отправки формы

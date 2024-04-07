@@ -52,4 +52,4 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)  # регистрация приложения
 class PostComment(admin.ModelAdmin):
-    list_display = ('name', 'com',)
+    list_display = ('author', 'com',)

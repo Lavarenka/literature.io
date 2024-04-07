@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% load genre %}
+
+{% block title %}{{ title }} {% endblock %}
+
+
+{% block content %}
+
+    <!-- ### Хлебные крошки  жанры ### -->
+
+    <!-- # Хлебные крошки # -->
+    <div class="d-flex  mb-2 box_lvl p-1 index_breadcrumb d-none d-xl-block">
+        <nav aria-label="">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                {% if title != 'Главная' %}
+                    <li class="breadcrumb-item">{{ title }}</li>
+                {% endif %}
+
+            </ol>
+        </nav>
+    </div>
+    <!-- # /Хлебные крошки # -->
+
+    <!-- # жанры канвас # -->
+    {% include 'inc/_genre_canvas.html' %}
+    <!-- # /жанры канвас # -->
+
+    <!-- ### /Хлебные крошки  жанры ### -->
+
+    <!-- ### main_content ### -->
+    <div class="main_content  box_lvl p-1 mb-2">
+        <div class="main_content_container p-1 ">
+            <div class="container">
+                <div class="row">
+                    <div class=" text-center m-2">{{ subtitle }}: &nbsp {{ title }}</div>
+
+                    <hr>
+                </div>
+            </div>
+
+            <div class="container books">
+                <div class="books_row row">
+
+                    <!-- ### CARD_1 ### -->
+                    <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur
+                        consequuntur cumque deserunt dolore doloremque maxime soluta voluptate. Consequuntur delectus
+                        inventore ipsam natus pariatur vitae voluptates. Alias libero nihil ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur
+                        consequuntur cumque deserunt dolore doloremque maxime soluta voluptate. Consequuntur delectus
+                        inventore ipsam natus pariatur vitae voluptates. Alias libero nihil ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur
+                        consequuntur cumque deserunt dolore doloremque maxime soluta voluptate. Consequuntur delectus
+                        inventore ipsam natus pariatur vitae voluptates. Alias libero nihil ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur
+                        consequuntur cumque deserunt dolore doloremque maxime soluta voluptate. Consequuntur delectus
+                        inventore ipsam natus pariatur vitae voluptates. Alias libero nihil ut.
+                    </div>
+                    <!-- ### /CARD_1 ### -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ### /main_content ### -->
+
+{% endblock content %}
+
+

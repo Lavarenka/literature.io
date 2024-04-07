@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseNotFound
@@ -122,7 +123,7 @@ class GetPost(DetailView):
 class CommentBook(SuccessMessageMixin, CreateView):
     form_class = CommentForm  # форма
 
-    # template_name = 'blog/single.html'
+    template_name = 'blog/single.html'
     # success_url = '/' # редирект на главную после отправки формы
 
     success_message = "Комментарий отправлен"
@@ -133,10 +134,17 @@ class CommentBook(SuccessMessageMixin, CreateView):
     #
     #     return context
 
+    # def form_valid(self, form):
+    #     form.instance.com_id = self.kwargs.get("pk")
+    #     self.object = form.save()
+    #     return super().form_valid(form)
+
     def form_valid(self, form):
         form.instance.com_id = self.kwargs.get("pk")
-        self.object = form.save()
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
         return super().form_valid(form)
+
 
     def get_success_url(self):
         """действе после отправки комента , остается на странице"""
@@ -160,6 +168,15 @@ class Search(ListView):
         return context
 
 
+@login_required
+def about(request):
+    """
+    LOGIN_URL = 'user:login'  в сеттингах - редирект
+    """
+
+    return render(request, 'blog/about.html', {messages: 'messages'})
+
+
 def page_not_found(request, exception):
     """
 
@@ -169,6 +186,3 @@ def page_not_found(request, exception):
     """
     # return HttpResponseNotFound("<h1>Страница не найдена</h1>")
     return redirect('/')
-
-
-

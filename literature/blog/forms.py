@@ -12,4 +12,4 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ['name', 'content', ]  # все поля с модели
+        fields = [ 'content', ]  # все поля с модели

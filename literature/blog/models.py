@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
@@ -36,6 +37,7 @@ class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(is_published=Post.Status.PUBLICHED)
 
+
 class Genre(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, verbose_name='url', unique=True)
@@ -50,7 +52,6 @@ class Genre(models.Model):
         ordering = ['title']
         verbose_name = 'Жанр'  # название блога в админке
         verbose_name_plural = 'Жанры'  # название блога в админке во множественном числе
-
 
 
 class Series(models.Model):
@@ -88,6 +89,7 @@ class Author(models.Model):
         verbose_name = 'Автор'  # название блога в админке
         verbose_name_plural = 'Авторы'  # название блога в админке во множественном числе
 
+
 class Post(models.Model):
     """
     auto_now_add / заполняется автоматом только после создания
@@ -118,17 +120,16 @@ class Post(models.Model):
     genre = models.ManyToManyField(Genre, related_name='genre',
                                    verbose_name='Жанры')
     series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='series',
-                               verbose_name='Серии книг', blank=True)  # связываем категории, PROTECT запрещает удаление если есть посты
+                               verbose_name='Серии книг',
+                               blank=True)  # связываем категории, PROTECT запрещает удаление если есть посты
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='author',
                                verbose_name='Автор')
     # is_published = models.BooleanField(default=True)
     is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)),
                                        default=Status.PUBLICHED, verbose_name='Статус')
 
-
     objects = models.Manager()
     published = PublishedManager()  # вызываем класс со статьями опубликованными  , класс прописан Выше
-
 
     def __str__(self):
         return self.title
@@ -142,7 +143,7 @@ class Post(models.Model):
         """
         для адмнки
         """
-        ordering = ['-time_create'] # сартирует и в админке и на сайте
+        ordering = ['-time_create']  # сартирует и в админке и на сайте
         verbose_name = 'Статья'  # название блога в админке
         verbose_name_plural = 'Статьи'  # название блога в админке во множественном числе
 
@@ -153,11 +154,13 @@ class Comment(models.Model):
 
     """
 
-    name = models.CharField(max_length=100, verbose_name='Имя пользователя')
+    # name = models.CharField(max_length=100, verbose_name='Имя пользователя', blank=True, null=True)
 
     content = models.TextField(verbose_name='Текст')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     com = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment')
+    author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, related_name='posts', null=True,
+                               default=None)
 
-    def __str__(self):
-        return self.name
+    # def __str__(self):
+    #     return self.id

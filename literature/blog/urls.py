@@ -5,6 +5,7 @@ urlpatterns = [
     path('comment/<int:pk>/', CommentBook.as_view(), name='create_comment'),
     # отправка комента , должно быть первым в урлах
     path('', Home.as_view(), name='home'),
+    path('about/', about, name='about'),
     path('genre/<str:slug>/', PostGenre.as_view(), name='genre'),  # жанры
     path('series/<str:slug>/', PostSeries.as_view(), name='series'),  # серии книг
     path('author/<str:slug>/', PostAuthor.as_view(), name='author'),  # Автор
