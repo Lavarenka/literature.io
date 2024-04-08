@@ -12,6 +12,9 @@ from django.contrib import messages
 
 """
 Genre / Series / Author / Post / Comment
+@login_required декоратор для доступа авторизованных юзеров
+LoginRequiredMexin для доступа авторизованных юзеров
+
 """
 
 
@@ -121,25 +124,18 @@ class GetPost(DetailView):
 
 
 class CommentBook(SuccessMessageMixin, CreateView):
+    """
+    Подключаем комментарии к посту
+    """
     form_class = CommentForm  # форма
-
-    template_name = 'blog/single.html'
-    # success_url = '/' # редирект на главную после отправки формы
-
     success_message = "Комментарий отправлен"
 
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['title'] = 'Предложить книгу'
-    #
-    #     return context
-
-    # def form_valid(self, form):
-    #     form.instance.com_id = self.kwargs.get("pk")
-    #     self.object = form.save()
-    #     return super().form_valid(form)
 
     def form_valid(self, form):
+        """
+        связываем коммент к посту, формируем запись без занесения в бд,
+        определяем пользователя , после сохраняем в бд
+        """
         form.instance.com_id = self.kwargs.get("pk")
         self.object = form.save(commit=False)
         self.object.author = self.request.user
@@ -153,6 +149,9 @@ class CommentBook(SuccessMessageMixin, CreateView):
 
 
 class Search(ListView):
+    """
+    Поиск
+    """
     template_name = "blog/search.html"
     context_object_name = "posts"
     paginate_by = 3

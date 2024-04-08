@@ -151,7 +151,7 @@ class Post(models.Model):
 class Comment(models.Model):
     """создаем коменты и подключаем к посту
         нужно еще добавить дату
-
+        get_user_model() / функция для получения модели пользователя
     """
 
     # name = models.CharField(max_length=100, verbose_name='Имя пользователя', blank=True, null=True)

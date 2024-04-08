@@ -158,7 +158,7 @@
                         {% for com in post.comment.all %}
                             <div class="card mb-2">
                                 <div class="card-header">
-                                    {{ com.author }}
+                                    {{ com.author.first_name|default:"Пользователь удален" }}
                                 </div>
                                 <div class="card-body">
                                     <blockquote class="blockquote mb-0">

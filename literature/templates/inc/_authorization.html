@@ -1,7 +1,7 @@
 <div class=" sidebar_authorization  box_lvl mb-2 p-2">
     <div class="d-grid gap-2">
         {% if user.is_authenticated %}
-            <div class=""><p>Привет: {{ user.username }}</p></div>
+            <div class=""><p>Привет: {{ user.first_name }}</p></div>
             <a class="btn btn-primary" href="{% url 'users:logout' %}">Выйти</a>
         {% else %}
             <a class="btn btn-primary" href="{% url 'users:register' %}">Регистрация</a>
