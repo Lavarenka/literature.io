@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "debug_toolbar.middleware.DebugToolbarMiddleware", # дебагер
+    "debug_toolbar.middleware.DebugToolbarMiddleware",  # дебагер
 ]
 
 ROOT_URLCONF = 'literature.urls'
@@ -142,4 +142,15 @@ INTERNAL_IPS = [
     # ...
 ]
 
-LOGIN_URL = 'users:login' # редирек несуществующего сайта если пользователь не авторизован
+LOGIN_URL = 'users:login'  # редирек несуществующего сайта если пользователь не авторизован
+
+
+# авторизация по логину и мылу
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    'users.authentication.EmailAuthBackend',
+]
+
+
+# отправка писем в консоль
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

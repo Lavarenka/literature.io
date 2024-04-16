@@ -4,6 +4,8 @@ from .views import *
 urlpatterns = [
     path('comment/<int:pk>/', CommentBook.as_view(), name='create_comment'),
     # отправка комента , должно быть первым в урлах
+    # path('comment/<int:pk>/', DelComment.as_view(), name='articles_delete'),
+
     path('', Home.as_view(), name='home'),
     path('about/', about, name='about'),
     path('genre/<str:slug>/', PostGenre.as_view(), name='genre'),  # жанры

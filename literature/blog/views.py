@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
 
 from .forms import CommentForm
@@ -13,7 +14,7 @@ from django.contrib import messages
 """
 Genre / Series / Author / Post / Comment
 @login_required декоратор для доступа авторизованных юзеров
-LoginRequiredMexin для доступа авторизованных юзеров
+LoginRequiredMixin для доступа авторизованных юзеров
 
 """
 
@@ -141,11 +142,19 @@ class CommentBook(SuccessMessageMixin, CreateView):
         self.object.author = self.request.user
         return super().form_valid(form)
 
-
-    def get_success_url(self):
-        """действе после отправки комента , остается на странице"""
-
-        return self.object.com.get_absolute_url()
+# class DelComment(View):
+#     def post(self, request, *args, **kwargs):
+#         article_id = kwargs.get('pk')
+#         print(article_id)
+#         # article = Article.objects.get(id=article_id)
+#         # if article:
+#         #     article.delete()
+#         # return redirect('articles')
+#
+#     def get_success_url(self):
+#         """действе после отправки комента , остается на странице"""
+#
+#         return self.object.com.get_absolute_url()
 
 
 class Search(ListView):
@@ -165,6 +174,8 @@ class Search(ListView):
         context['title'] = 'Поиск'
         context['s'] = f"s={self.request.GET.get('s')}&"
         return context
+
+
 
 
 @login_required

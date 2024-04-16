@@ -164,3 +164,8 @@ class Comment(models.Model):
 
     # def __str__(self):
     #     return self.id
+    class Meta:
+        """
+        для адмнки
+        """
+        ordering = ['-time_create']  # сартирует и в админке и на сайте

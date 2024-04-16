@@ -42,25 +42,27 @@
             <div class="container books">
                 <div class="books_row row">
                     <div class="col-md-6">
-                        {% if user.is_authenticated %}
-                        <p>Для регистрации нужно выйти из аккаунта</p>
-                        {% else %}
+
                         <form method="post">
                             {% csrf_token %}
-                            {{ form.as_p }}
-                            {#                            <div class="fom-error">{{ form.non_field_errors }}</div>#}
-                            {#                            {% for f in form %}#}
-                            {#                                <div class="mb-3">#}
-                            {#                                    <label for="{{ f.id_for_label }}" class="form-label">{{ f.label }}</label>#}
-                            {#                                    {{ f }}#}
-                            {#                                    <div class="invalid-feedback">#}
-                            {#                                        {{ f.errors }}#}
-                            {#                                    </div>#}
-                            {#                                </div>#}
-                            {#                            {% endfor %}#}
-                            <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
+                            <div class="form-error">{{ form.non_field_errors }}</div>
+                            {% for f in form %}
+                                {#                                <div class="mb-3">#}
+                                {#                                    <label for="{{ f.id_for_label }}" class="form-label">{{ f.label }}</label>#}
+                                {#                                    {{ f }}#}
+                                {#                                    <div class="invalid-feedback">#}
+                                {#                                        {{ f.errors }}#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                                #}
+                                <p><label for="{{ f.id_for_label }}" class="form-label">{{ f.label }}</label>{{ f }}</p>
+                                <div class="form-error">{{ f.errors }}</div>
+                            {% endfor %}
+
+                            <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
                         </form>
-                        {% endif %}
+                        <hr>
+                        <p><a href="{% url 'users:password-change' %}">Сменить пароль</a></p>
                     </div>
 
 
