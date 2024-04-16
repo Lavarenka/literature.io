@@ -128,44 +128,91 @@
                     {% if user.is_authenticated %}
 
                         <div class="m-2">
-                         <form action="{% url 'create_comment' pk=post.id %}" method="post">
+                            <form action="{% url 'create_comment' pk=post.id %}" method="post">
 
-                            {% csrf_token %}
+                                {% csrf_token %}
 
-                            <div class="mb-3">
-                                <label for="{{ form.content.id_for_label }}" class="form-label">Оставить
-                                    комментарий</label>
-                                {{ form.content }}
-                                <div class="invalid-feedback">
-                                    {{ form.content.errors }}
+                                <div class="mb-3">
+                                    <label for="{{ form.content.id_for_label }}" class="form-label">Оставить
+                                        комментарий</label>
+                                    {{ form.content }}
+                                    <div class="invalid-feedback">
+                                        {{ form.content.errors }}
+                                    </div>
                                 </div>
-                            </div>
 
-                            {{ form.non_field_errors }}
-                            {#        общие ошибки      #}
+                                {{ form.non_field_errors }}
+                                {#        общие ошибки      #}
 
-                            <button type="submit" class="btn btn-primary btn-block">Отправить</button>
-                        </form>
+                                <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+                            </form>
                         </div>
 
                     {% else %}
-                        <div class="m-2">Для добавления комментария , <a href="{% url 'users:login' %}">Авторизуйтесь</a></div>
+                        <div class="m-2">Для добавления комментария , <a
+                                href="{% url 'users:login' %}">Авторизуйтесь</a></div>
                     {% endif %}
 
                     <div class="">Комментарии:</div>
                     <hr>
                     {% if post.comment.all %}
                         {% for com in post.comment.all %}
-                            <div class="card mb-2">
+                            <div class="card mb-2 ">
                                 <div class="card-header">
-                                    {{ com.author.first_name|default:"Пользователь удален" }}
+                                    {{ com.author.username|default:"Пользователь удален" }}
                                 </div>
                                 <div class="card-body">
                                     <blockquote class="blockquote mb-0">
                                         <p>{{ com.content }}</p>
                                     </blockquote>
                                 </div>
-                                <div class="text-end mb-1">{{ com.time_create }}</div>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                    <div class="text-end mb-1">{{ com.time_create }}</div>
+                                    {% if com.author.id == user.id %}
+                                        <div class="">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#staticBackdrop">
+                                                Удалить
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                                 data-bs-keyboard="false" tabindex="-1"
+                                                 aria-labelledby="staticBackdropLabel"
+                                                 aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Удалить комментарий ?</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close
+                                                            </button>
+                                                            <button type="button" class="btn btn-primary"><a
+                                                                    href="{% url 'delete_comment' com.pk %}">Delete</a>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    {% endif %}
+
+                                </div>
+
                             </div>
                         {% endfor %}
                     {% else %}

@@ -13,6 +13,7 @@ urlpatterns = [
     path('author/<str:slug>/', PostAuthor.as_view(), name='author'),  # Автор
     path('post/<str:slug>/', GetPost.as_view(), name='post'),  # вывод отдельного поста
     path('search/', Search.as_view(), name='search'),  # Поиск
+    path('delete_comment/<int:pk>', DelComment.as_view(), name='delete_comment')
 
     # path('register/', register, name='register'),  # регистрация
     # path('login/', login, name='login'),  # авторизация
