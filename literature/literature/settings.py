@@ -168,4 +168,23 @@ AUTHENTICATION_BACKENDS = [
 
 
 # отправка писем в консоль
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+############## для настройки SMTP #######################
+
+# Исходящая почта
+# Адрес почтового сервера — smtp.yandex.ru.
+# Защита соединения — SSL.
+# Порт — 465. Если почтовый клиент начинает соединение без шифрования — 587.
+
+
+
+EMAIL_HOST = "smtp.yandex.ru"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "Temya.Kustodrot@yandex.ru"
+EMAIL_HOST_PASSWORD = 'ioirtoalngankzvq' # ПАСС ОТ ЯНДЕКСА ПРИЛОЖЕНИЙ
+EMAIL_USE_SSL = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER

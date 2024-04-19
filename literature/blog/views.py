@@ -51,8 +51,6 @@ class PostGenre(ListView):
     allow_empty = False  # ошибка при пустой категории
 
     def get_queryset(self):
-        print(self.kwargs)
-
         return Post.published.filter(genre__slug=self.kwargs['slug'])
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -72,8 +70,6 @@ class PostAuthor(ListView):
     allow_empty = False  # ошибка при пустой категории
 
     def get_queryset(self):
-        print(self.kwargs)
-
         return Post.published.filter(author__slug=self.kwargs['slug'])
 
     def get_context_data(self, *, object_list=None, **kwargs):
