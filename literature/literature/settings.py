@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'literature.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'book',
+        'NAME': 'book_2',
         'USER': 'admin1',
         'PASSWORD': 'admin1',
         'HOST': '127.0.0.1',

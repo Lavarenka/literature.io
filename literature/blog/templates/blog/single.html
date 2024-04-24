@@ -86,27 +86,46 @@
                                     {#  timesince  Сколько прошло времени от создания   #}
                                 </div>
                                 <div class="pe-3"><i class="fa-solid fa-eye"></i> {{ post.views }}</div>
-                                <div class="pe-3"><i class="fa-regular fa-comment-dots"></i> 3</div>
-                                <div class="d-flex align-items-center">
-                                    <div class="rating-area ">
+                                <div class="pe-3"><i class="fa-regular fa-comment-dots"></i> {{ post.comment.all.count }}</div>
 
-                                        <input type="radio" id="star-5" name="rating" value="5">
-                                        <label for="star-5" title="Оценка «5»"></label>
-                                        <input type="radio" id="star-4" name="rating" value="4">
-                                        <label for="star-4" title="Оценка «4»"></label>
-                                        <input type="radio" id="star-3" name="rating" value="3">
-                                        <label for="star-3" title="Оценка «3»"></label>
-                                        <input type="radio" id="star-2" name="rating" value="2">
-                                        <label for="star-2" title="Оценка «2»"></label>
-                                        <input type="radio" id="star-1" name="rating" value="1">
-                                        <label for="star-1" title="Оценка «1»"></label>
+{#                                    <div class="rating-area ">#}
+{##}
+{#                                        <input type="radio" id="star-5" name="rating" value="5">#}
+{#                                        <label for="star-5" title="Оценка «5»"></label>#}
+{#                                        <input type="radio" id="star-4" name="rating" value="4">#}
+{#                                        <label for="star-4" title="Оценка «4»"></label>#}
+{#                                        <input type="radio" id="star-3" name="rating" value="3">#}
+{#                                        <label for="star-3" title="Оценка «3»"></label>#}
+{#                                        <input type="radio" id="star-2" name="rating" value="2">#}
+{#                                        <label for="star-2" title="Оценка «2»"></label>#}
+{#                                        <input type="radio" id="star-1" name="rating" value="1">#}
+{#                                        <label for="star-1" title="Оценка «1»"></label>#}
+{##}
+{#                                    </div>#}
+                                    <div class="">
+                                        <form action="{% url "add_rating" %}" method="post" name="rating">
+                                            {% csrf_token %}
+                                            <input type="hidden" value="{{ post.id }}" name="post">
+                                            <span class="rating">
+                                                {% for k, v in star_form.fields.star.choices %}
+                                                    <input  id="rating{{ v }}" type="radio" name="star", value="{{ k }}">
+                                                    <label   for="rating{{ v }}">{{ k }}</label>
+                                                {% endfor %}
 
+                                            </span>
+                                            <span class="editContent">{{ mid }}</span>
+                                        </form>
                                     </div>
-                                    <div class=""> --1</div>
-                                </div>
+
+
+
+
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="text-center details_title">Описание</div>
                     <hr>
                     <div class="header__details p-2">

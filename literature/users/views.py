@@ -1,10 +1,14 @@
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import *
@@ -22,6 +26,9 @@ class RegisterUser(SuccessMessageMixin, CreateView):
     extra_context = {"title": "Регистрация"}
     success_url = reverse_lazy('users:login')
     success_message = "Вы успешно зарегистрировались! "
+
+
+
 
 
 # def register_user(request):
@@ -84,7 +91,6 @@ class ProfileUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     template_name = 'users/profile.html'
     extra_context = {'title': 'Профиль пользователя'}
     success_message = "Профиль изменен "
-
 
     def get_success_url(self):
         """

@@ -90,6 +90,8 @@ class Author(models.Model):
         verbose_name_plural = 'Авторы'  # название блога в админке во множественном числе
 
 
+
+
 class Post(models.Model):
     """
     auto_now_add / заполняется автоматом только после создания
@@ -113,10 +115,7 @@ class Post(models.Model):
     views = models.IntegerField(default=0, verbose_name='Кол-во просмотров')
     year = models.IntegerField(default=0, verbose_name='Год')
     number_series = models.IntegerField(default=1, verbose_name='Номер книги серии')
-    score = models.IntegerField(default=0, validators=[
-        MaxValueValidator(5),
-        MinValueValidator(0),
-    ], verbose_name='Рейтинг')
+
     genre = models.ManyToManyField(Genre, related_name='genre',
                                    verbose_name='Жанры')
     series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='series',
@@ -169,3 +168,35 @@ class Comment(models.Model):
         для адмнки
         """
         ordering = ['-time_create']  # сартирует и в админке и на сайте
+
+
+
+class RatingStar(models.Model):
+    """
+    для звезд рейтинга к книге
+    """
+    value = models.SmallIntegerField('Значение', default=0)
+
+    def __str__(self):
+        return f'{self.value}'
+
+    class Meta:
+        verbose_name: 'Звезда рейтинга'
+        verbose_name_plural = 'Звезды рейтинга'
+        ordering = ["-value"]
+
+class Rating(models.Model):
+    """
+    рейтинг , связываем с книгами и звездами
+    """
+    ip = models.CharField('IP адрес', max_length=15)
+    star = models.ForeignKey(RatingStar, on_delete=models.CASCADE, verbose_name='звезда')
+    post = models.ForeignKey(Post, on_delete=models.SET_NULL, verbose_name='книга', null=True,
+                               default=None, blank=True, related_name="rating")
+
+    def __str__(self):
+        return f"{self.star} - {self.post}"
+
+    class Meta:
+        verbose_name = "Рейтинг"
+        verbose_name_plural = "Рейтинги"

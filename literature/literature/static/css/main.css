@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 
-
 /*Обнуление*/
 * {
     padding: 0;
@@ -147,9 +146,10 @@ body {
     background-color: bisque;
 }
 
-.active{
+.active {
     color: red;
 }
+
 .wrapper {
     min-height: 100%;
     display: flex;
@@ -204,7 +204,8 @@ main.main {
 
 /* Header  */
 
-.header {}
+.header {
+}
 
 .header_top {
     border-radius: 15px;
@@ -238,9 +239,11 @@ main.main {
     margin: 0;
 }
 
-.progress_bar {}
+.progress_bar {
+}
 
-.progress_bar_contaoner {}
+.progress_bar_contaoner {
+}
 
 .main_container {
     flex: 1 1 auto;
@@ -251,7 +254,8 @@ main.main {
     min-height: 100%;
 }
 
-.main {}
+.main {
+}
 
 .main_content {
     flex: 1 1 auto;
@@ -269,7 +273,6 @@ main.main {
 
 /* item_card books */
 .item_books__description {
-
 
 
     flex: 1 1 auto;
@@ -305,7 +308,8 @@ main.main {
 }
 
 
-.books_item {}
+.books_item {
+}
 
 .item_books_UP {
     flex: 1 1 auto;
@@ -332,18 +336,20 @@ main.main {
     object-fit: cover;
 }
 
-.top__details {}
+.top__details {
+}
 
 
-.header__details > p{
+.header__details > p {
     font-size: 18px;
     text-indent: 20px;
 }
 
-.description_top__details{
+.description_top__details {
     flex: 1 1 auto;
-    
+
 }
+
 /* /details */
 /* sidebar */
 
@@ -370,7 +376,8 @@ main.main {
     border-top: 1px dashed black;
 }
 
-.sidebar_authorization {}
+.sidebar_authorization {
+}
 
 .sidebar_container {
     min-height: 100%;
@@ -401,8 +408,48 @@ main.main {
 
 /* /sidebar */
 
-/* parallax */
+/* rating  */
 
+.rating {
+  overflow: hidden;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 155px;
+  height: 30px;
+}
+
+.rating > input {
+  opacity: 0;
+  margin-right: -100%;
+}
+
+.rating > label {
+  position: relative;
+  display: block;
+  float: right;
+  background: url('../img/star-off-big.png');
+  background-size: 30px 30px;
+}
+
+.rating > label:before {
+  display: block;
+  opacity: 0;
+  content: '';
+  width: 30px;
+  height: 30px;
+  background: url('../img/star-on-big.png');
+  background-size: 30px 30px;
+  transition: opacity 0.2s linear;
+}
+
+.rating > label:hover:before,  .rating > label:hover ~ label:before,  .rating:not(:hover) > :checked ~ label:before { opacity: 1; }
+
+
+
+/* /rating  */
+
+
+/* parallax */
 
 
 .parallax__body {
@@ -455,7 +502,8 @@ main.main {
     z-index: 1;
 }
 
-.images-parralax {}
+.images-parralax {
+}
 
 .images-parralax__item {
     position: absolute;
@@ -567,60 +615,6 @@ main.main {
     }
 }
 
-
-
-
-/*  */
-
-
-/* reiting */
-.rating-area {
-    overflow: hidden;
-    min-width: 140px;
-
-}
-
-.rating-area:not(:checked)>input {
-    display: none;
-}
-
-.rating-area:not(:checked)>label {
-    float: right;
-
-    padding: 0;
-    cursor: pointer;
-    font-size: 30px;
-    line-height: 30px;
-    color: lightgrey;
-    text-shadow: 1px 1px #bbb;
-}
-
-.rating-area:not(:checked)>label:before {
-    content: '★';
-}
-
-.rating-area>input:checked~label {
-    color: gold;
-
-}
-
-.rating-area:not(:checked)>label:hover,
-.rating-area:not(:checked)>label:hover~label {
-    color: gold;
-}
-
-.rating-area>input:checked+label:hover,
-.rating-area>input:checked+label:hover~label,
-.rating-area>input:checked~label:hover,
-.rating-area>input:checked~label:hover~label,
-.rating-area>label:hover~input:checked~label {
-    color: gold;
-    text-shadow: 1px 1px goldenrod;
-}
-
-.rate-area>label:active {
-    position: relative;
-}
 
 /*  */
 

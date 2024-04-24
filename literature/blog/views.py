@@ -1,13 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponseNotFound, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
 
-from .forms import CommentForm
+from .forms import CommentForm, RatingForm
 from .models import *
 from django.db.models import F
 from django.contrib import messages
@@ -38,6 +38,7 @@ class Home(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Главная'
         context['subtitle'] = 'Вся литература'
+        context['star_form'] = RatingForm()
         return context
 
 
@@ -95,6 +96,7 @@ class PostSeries(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = Series.objects.get(slug=self.kwargs['slug'])
         context['subtitle'] = 'Серия книг'
+
         return context
 
 
@@ -113,12 +115,18 @@ class GetPost(DetailView):
         для количества просмотров
         """
         context = super().get_context_data(**kwargs)
-
+        x = self.object.rating.all().values('star_id')
+        mid = list(map(lambda x: int(x['star_id']), x))
+        mid = int(sum(mid) / len(list(mid)))
         self.object.views = F('views') + 1
         self.object.save()
         self.object.refresh_from_db()
         context['form'] = CommentForm
+        context['star_form'] = RatingForm()
+        context['mid'] = mid
+
         return context
+
 
 
 class CommentBook(SuccessMessageMixin, CreateView):
@@ -155,6 +163,8 @@ class DelComment(View):
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
+
+
 class Search(ListView):
     """
     Поиск
@@ -173,6 +183,27 @@ class Search(ListView):
         context['s'] = f"s={self.request.GET.get('s')}&"
         return context
 
+class AddStarRating(View):
+    """Добавление рейтинга фильму"""
+    def get_client_ip(self, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
+
+    def post(self, request):
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            Rating.objects.update_or_create(
+                ip=self.get_client_ip(request),
+                post_id=int(request.POST.get("post")),
+                defaults={'star_id': int(request.POST.get("star"))}
+            )
+            return HttpResponse(status=201)
+        else:
+            return HttpResponse(status=400)
 
 @login_required
 def about(request):

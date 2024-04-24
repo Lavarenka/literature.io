@@ -21,6 +21,11 @@ class GenreAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}  # для автоматического добавления слага
 
 
+
+@admin.register(Comment)  # регистрация приложения
+class PostComment(admin.ModelAdmin):
+    list_display = ('author', 'com',)
+
 @admin.register(Series)  # регистрация приложения
 class SeriesAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}  # для автоматического добавления слага
@@ -36,7 +41,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'number_series', 'series', 'author', 'is_published', 'post_photo')
     prepopulated_fields = {"slug": ("title",)}  # для автоматического добавления слага
     list_editable = ('is_published', )
-    readonly_fields = ['views', 'score']
+    readonly_fields = ['views', ]
     list_display_links = ('id', 'title')
     search_fields = ('title', )
     list_filter = ('is_published', )
@@ -50,6 +55,11 @@ class PostAdmin(admin.ModelAdmin):
             return mark_safe(f"<img src='{obj.photo_preview.url}' width=50")
         return 'без фото '
 
-@admin.register(Comment)  # регистрация приложения
-class PostComment(admin.ModelAdmin):
-    list_display = ('author', 'com',)
+
+@admin.register(RatingStar)
+class RatingStarAdmin(admin.ModelAdmin):
+    list_display = ('value', )
+
+@admin.register(Rating)
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ('ip', 'star', 'post')
