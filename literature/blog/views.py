@@ -201,6 +201,7 @@ class AddStarRating(View):
                 post_id=int(request.POST.get("post")),
                 defaults={'star_id': int(request.POST.get("star"))}
             )
+
             return HttpResponse(status=201)
         else:
             return HttpResponse(status=400)
