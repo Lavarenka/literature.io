@@ -16,7 +16,7 @@ env = environ.Env(
     DATABASE_USER=(str),
     DATABASE_PASSWORD=(str),
     DATABASE_HOST=(str),
-    DATABASE_PORT=(int),
+    DATABASE_PORT=(str),
 
     EMAIL_HOST=(str),
     EMAIL_PORT=(int),
@@ -110,11 +110,11 @@ WSGI_APPLICATION = 'literature.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'book_2',
-        'USER': 'admin1',
-        'PASSWORD': 'admin1',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT'),
     }
 }
 
@@ -156,6 +156,9 @@ STATICFILES_DIRS = [
     BASE_DIR / 'literature/static',
 
 ]
+
+
+
 
 # создать корень для загрузки медиа
 MEDIA_ROOT = BASE_DIR / 'media'
