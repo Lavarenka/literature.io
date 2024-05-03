@@ -115,6 +115,7 @@ class Post(models.Model):
     views = models.IntegerField(default=0, verbose_name='Кол-во просмотров')
     year = models.IntegerField(default=0, verbose_name='Год')
     number_series = models.IntegerField(default=1, verbose_name='Номер книги серии')
+    file_book = models.FileField(upload_to='books', verbose_name='скачать', blank=True)
 
     genre = models.ManyToManyField(Genre, related_name='genre',
                                    verbose_name='Жанры')

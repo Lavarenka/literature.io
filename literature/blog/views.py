@@ -115,15 +115,15 @@ class GetPost(DetailView):
         для количества просмотров
         """
         context = super().get_context_data(**kwargs)
-        x = self.object.rating.all().values('star_id')
-        mid = list(map(lambda x: int(x['star_id']), x))
-        mid = int(sum(mid) / len(list(mid)))
+        # x = self.object.rating.all().values('star_id')
+        # mid = list(map(lambda x: int(x['star_id']), x))
+        # mid = int(sum(mid) / len(list(mid)))
         self.object.views = F('views') + 1
         self.object.save()
         self.object.refresh_from_db()
         context['form'] = CommentForm
         context['star_form'] = RatingForm()
-        context['mid'] = mid
+        # context['mid'] = mid
 
         return context
 
