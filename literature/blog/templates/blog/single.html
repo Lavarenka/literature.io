@@ -42,17 +42,17 @@
         <div class="main_content_container p-1 ">
             <div class="container container_details">
                 <div class="row row_details ">
-                    <div class="details_title text-center p-2">{{ post.title }}</div>
+                    <div class="details_title text-center p-2"> <h1>{{ post.title }}</h1> </div>
                     <hr>
                     <div class="top__details d-flex row my-2">
 
 
                         {% if post.photo_post %}
                             <div class="img__details col-sm-3 d-flex "><img
-                                    src="{{ post.photo_post.url }}" alt=""></div>
+                                    src="{{ post.photo_post.url }}" alt="{{ post.title }}"></div>
                         {% else %}
                             <div class="img__details col-sm-3 d-flex "><img
-                                    src="{% static 'img/no_product.jpg' %}" alt=""></div>
+                                    src="{% static 'img/no_product.jpg' %}" alt="{{ post.title }}"></div>
                         {% endif %}
 
                         <div class="description__details col p-2 d-flex flex-column ">
