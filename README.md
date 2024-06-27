@@ -1,1 +1,1 @@
-# literature.io
+# https://lavarenka.github.io/literature.io/
