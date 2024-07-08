@@ -138,13 +138,27 @@ body {
     background: -moz-linear-gradient(90deg, rgb(197, 207, 154) 42%, rgb(221, 177, 72));
     background: linear-gradient(90deg, rgb(197, 207, 154) 42%, rgb(221, 177, 72));
     background-attachment: fixed;
+    background-image: url("../img/book_body.jpg");
+    background-size: cover;
+    /*background-position: center;*/
 }
 
 body {
     min-width: 320px;
     font-family: "Roboto", sans-serif;
     background-color: bisque;
+    color: white;
+
+
 }
+
+a, li , p{
+    color: white !important;
+}
+
+/*li a{*/
+/*    color: white !important;*/
+/*}*/
 
 .active {
     color: red;
@@ -154,7 +168,7 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    max-width: 1400px;
+    max-width: 1200px;
 
     overflow: hidden;
     margin: 0 auto;
@@ -170,30 +184,39 @@ main.main {
 }
 
 
-.box {
-    padding: 10px;
-    background-image: url("../img/glass_black.png");
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    border-radius: 15px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+/*.box {*/
+/*    padding: 10px;*/
+/*    background-image: url("../img/glass_black.png");*/
+/*    background-position-x: initial;*/
+/*    background-position-y: initial;*/
+/*    background-size: initial;*/
+/*    background-repeat: initial;*/
+/*    background-attachment: initial;*/
+/*    background-origin: initial;*/
+/*    background-clip: initial;*/
+/*    border-radius: 15px;*/
+/*    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.1) inset;*/
 
-}
+/*}*/
 
 .box_lvl {
 
 
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
-    border-radius: 10px;
 
-    background: -webkit-linear-gradient(90deg, rgb(236, 236, 236), rgb(210, 212, 212));
-    background: -moz-linear-gradient(90deg, rgb(236, 236, 236), rgb(210, 212, 212));
-    background: linear-gradient(90deg, rgb(236, 236, 236), rgb(210, 212, 212));
+   background: rgb(0,0,0);
+background: linear-gradient(54deg, rgba(0,0,0,1) 0%, rgba(36,17,10,0.9836309523809523) 80%, rgba(68,67,67,1) 100%);
+
+}
+
+.box_header {
+
+
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+
+   background: black;
+
+
 }
 
 .bacgro_color {
@@ -285,8 +308,8 @@ main.main {
 }
 
 .item_books__image {
-    width: 175px;
-    height: 250px;
+    width: 140px;
+    height: 200px;
 }
 
 .item_books__image img {
@@ -317,6 +340,18 @@ main.main {
 
 /*  */
 
+
+.pagination_ {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.pagination_ .page-link {
+    font-size: 20px;
+
+}
 
 /* details */
 .details_title {
@@ -350,6 +385,23 @@ main.main {
 
 }
 
+
+.button_comment{
+    color: white;
+}
+
+.button_comment:hover{
+    color: #4c4c4c;
+}
+
+
+.post_comment__body{
+    background-color: white;
+}
+.post_comment__body > p{
+    color: black !important;
+}
+
 /* /details */
 /* sidebar */
 
@@ -380,12 +432,12 @@ main.main {
 }
 
 .sidebar_container {
-    min-height: 100%;
+
 }
 
 .sidebar_container_row {
+    min-height: 100%;
     min-width: 100%;
-
 
 }
 
@@ -411,39 +463,40 @@ main.main {
 /* rating  */
 
 .rating {
-  overflow: hidden;
-  vertical-align: bottom;
-  display: inline-block;
-  width: 155px;
-  height: 30px;
+    overflow: hidden;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 155px;
+    height: 30px;
 }
 
 .rating > input {
-  opacity: 0;
-  margin-right: -100%;
+    opacity: 0;
+    margin-right: -100%;
 }
 
 .rating > label {
-  position: relative;
-  display: block;
-  float: right;
-  background: url('../img/star-off-big.png');
-  background-size: 30px 30px;
+    position: relative;
+    display: block;
+    float: right;
+    background: url('../img/star-off-big.png');
+    background-size: 30px 30px;
 }
 
 .rating > label:before {
-  display: block;
-  opacity: 0;
-  content: '';
-  width: 30px;
-  height: 30px;
-  background: url('../img/star-on-big.png');
-  background-size: 30px 30px;
-  transition: opacity 0.2s linear;
+    display: block;
+    opacity: 0;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: url('../img/star-on-big.png');
+    background-size: 30px 30px;
+    transition: opacity 0.2s linear;
 }
 
-.rating > label:hover:before,  .rating > label:hover ~ label:before,  .rating:not(:hover) > :checked ~ label:before { opacity: 1; }
-
+.rating > label:hover:before, .rating > label:hover ~ label:before, .rating:not(:hover) > :checked ~ label:before {
+    opacity: 1;
+}
 
 
 /* /rating  */

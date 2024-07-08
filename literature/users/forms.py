@@ -40,11 +40,6 @@ class RegisterUserForm(UserCreationForm):
             'last_name': 'Фамилия',
         }
 
-        # widgets = {
-        #     'email': forms.TextInput(attrs={'class': 'form-input'}),
-        #     'first_name': forms.TextInput(attrs={'class': 'form-input'}),
-        #      'last_name': forms.TextInput(attrs={'class': 'form-input'}),
-        # }
 
     def clean_email(self):
         """проверка на уникальность email"""

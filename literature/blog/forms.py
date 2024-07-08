@@ -13,6 +13,9 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['content', ]  # все поля с модели
+        widgets = {
+            'content': forms.Textarea(attrs={'class': 'form-control'}),
+        }
 
 
 class RatingForm(forms.ModelForm):

@@ -111,7 +111,7 @@ class Post(models.Model):
     time_update = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
     photo_preview = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True, verbose_name='Фото_превтю')
     photo_post = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True, verbose_name='Фото_статьи')
-    photo_header = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True, verbose_name='Фото_фон')
+    photo_header = models.ImageField(upload_to='photos_header', blank=True, verbose_name='Фото_фон')
     views = models.IntegerField(default=0, verbose_name='Кол-во просмотров')
     year = models.IntegerField(default=0, verbose_name='Год')
     number_series = models.IntegerField(default=1, verbose_name='Номер книги серии')
@@ -119,12 +119,12 @@ class Post(models.Model):
 
     genre = models.ManyToManyField(Genre, related_name='genre',
                                    verbose_name='Жанры')
-    series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='series',
+    series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='post',
                                verbose_name='Серии книг',
                                blank=True)  # связываем категории, PROTECT запрещает удаление если есть посты
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='author',
                                verbose_name='Автор')
-    # is_published = models.BooleanField(default=True)
+
     is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)),
                                        default=Status.PUBLICHED, verbose_name='Статус')
 

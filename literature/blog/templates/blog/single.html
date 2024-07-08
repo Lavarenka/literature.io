@@ -6,9 +6,22 @@
 
 
 {% block content %}
+    {% if post.photo_header %}
+        <style>
+            html,
+            body {
+
+                background-attachment: fixed;
+                background-image: url("{{ post.photo_header.url }}") !important;
+                background-size: cover;
+
+            }
+        </style>
+    {% endif %}
+
 
     <!-- ### Хлебные крошки  жанры ### -->
-    <div class="d-flex  mb-2 box_lvl p-1 index_breadcrumb d-none d-xl-block">
+    <div class="d-flex mb-2  box_lvl p-1 index_breadcrumb d-none d-xl-block">
         <nav aria-label="">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
@@ -38,11 +51,11 @@
     <!-- ### /Хлебные крошки  жанры ### -->
 
     <!-- ### main_content ### -->
-    <div class="main_content  box_lvl p-1 mb-2">
+    <div class="main_content  box_lvl p-1 ">
         <div class="main_content_container p-1 ">
             <div class="container container_details">
                 <div class="row row_details ">
-                    <div class="details_title text-center p-2"> <h1>{{ post.title }}</h1> </div>
+                    <div class="details_title text-center p-2"><h1>{{ post.title }}</h1></div>
                     <hr>
                     <div class="top__details d-flex row my-2">
 
@@ -121,13 +134,18 @@
 
                         {% endif %}
                     </div>
+
+
                     <hr class="">
                     <div class="mb-2">Остальные книги серии:</div>
-                    <hr class="">
-                    <div class="">S.T.A.L.K.E.R. 01. Тумановский Ежи и
-                        Дядищев Александр
-                        - Тени Чернобыля. Клык:
-                    </div>
+
+                    {% for s in series_book %}
+                        <a href="{{ s.get_absolute_url }}">{{ s.title }}</a>
+
+                    {% endfor %}
+
+
+
 
                     <hr>
 
@@ -137,20 +155,19 @@
                             <form action="{% url 'create_comment' pk=post.id %}" method="post">
 
                                 {% csrf_token %}
-
-                                <div class="mb-3">
-                                    <label for="{{ form.content.id_for_label }}" class="form-label">Оставить
-                                        комментарий</label>
+                                <div class="form-floating">
                                     {{ form.content }}
+                                    <label for="floatingTextarea2">Оставить комментарий</label>
                                     <div class="invalid-feedback">
                                         {{ form.content.errors }}
                                     </div>
                                 </div>
-
                                 {{ form.non_field_errors }}
                                 {#        общие ошибки      #}
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-block button_comment">Отправить</button>
+                                </div>
 
-                                <button type="submit" class="btn btn-primary btn-block">Отправить</button>
                             </form>
                         </div>
 
@@ -159,26 +176,26 @@
                                 href="{% url 'users:login' %}">Авторизуйтесь</a></div>
                     {% endif %}
 
-                    <div class="">Комментарии:</div>
+                    <div class="mb-2">Комментарии:</div>
                     <hr>
                     {% if post.comment.all %}
                         {% for com in post.comment.all %}
-                            <div class="card mb-2 ">
-                                <div class="card-header">
-                                    {{ com.author.username|default:"Пользователь удален" }}
+                            <div class="post_comment  mb-2">
+                                <div class="card-header post_comment__header">
+                                    {{ com.author.username|default:"Пользователь удален" }}:
                                 </div>
-                                <div class="card-body">
-                                    <blockquote class="blockquote mb-0">
+                                <div class="card-body post_comment__body my-2 p-3" >
+
                                         <p>{{ com.content }}</p>
-                                    </blockquote>
+
                                 </div>
-                                <hr>
+
                                 <div class="d-flex justify-content-between">
                                     <div class="text-end mb-1">{{ com.time_create }}</div>
                                     {% if com.author.id == user.id %}
                                         <div class="">
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            <button type="button" class="btn button_comment" data-bs-toggle="modal"
                                                     data-bs-target="#staticBackdrop">
                                                 Удалить
                                             </button>
@@ -212,18 +229,25 @@
                                             </div>
                                         </div>
 
-
-
-
                                     {% endif %}
 
                                 </div>
 
+
                             </div>
+                            <hr>
+
                         {% endfor %}
+
+
+
+
                     {% else %}
                         <div class="">Нет комментариев</div>
                     {% endif %}
+
+
+
 
 
                 </div>

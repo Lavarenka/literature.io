@@ -11,7 +11,7 @@ from .forms import CommentForm, RatingForm
 from .models import *
 from django.db.models import F
 from django.contrib import messages
-
+from django.core.paginator import Paginator
 """
 Genre / Series / Author / Post / Comment
 @login_required декоратор для доступа авторизованных юзеров
@@ -108,6 +108,7 @@ class GetPost(DetailView):
     model = Post
     template_name = 'blog/single.html'
     context_object_name = 'post'
+
     allow_empty = False  # ошибка если пустой пост
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -121,8 +122,22 @@ class GetPost(DetailView):
         self.object.views = F('views') + 1
         self.object.save()
         self.object.refresh_from_db()
+
+        # cat = Post.objects.get(slug=self.kwargs['post_slug'])
+        # comment = Comment.objects.filter(com_id=cat.pk)
+        # paginator = Paginator(comment, 3)  # Show 25 contacts per page.
+
+        # page_number = self.object.get("page")
+        # comment = paginator.get_page(paginator)
+
+
         context['form'] = CommentForm
         context['star_form'] = RatingForm()
+        post = self.get_object()
+
+        context['series_book'] = post.series.post.filter(is_published=True).select_related()
+
+        # context['comment'] = comment
         # context['mid'] = mid
 
         return context
@@ -134,7 +149,9 @@ class CommentBook(SuccessMessageMixin, CreateView):
     Подключаем комментарии к посту
     """
     form_class = CommentForm  # форма
+    paginate_by = 3
     success_message = "Комментарий отправлен"
+
 
 
     def form_valid(self, form):

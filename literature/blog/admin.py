@@ -36,6 +36,8 @@ class AuthorAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}  # для автоматического добавления слага
 
 
+
+
 @admin.register(Post)  # регистрация приложения
 class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'number_series', 'series', 'author', 'is_published', 'post_photo')

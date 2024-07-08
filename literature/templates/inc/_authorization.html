@@ -1,14 +1,51 @@
-<div class=" sidebar_authorization  box_lvl mb-2 p-2">
-    <div class="d-grid gap-2">
-        {% if user.is_authenticated %}
-            <div class=""><p>Привет: {{ user.first_name }}</p></div>
-            <a class="btn btn-primary" href="{% url 'users:profile' %}">Профиль</a>
-            <a class="btn btn-primary" href="{% url 'users:logout' %}">Выйти</a>
+{#<div class=" sidebar_authorization  box_lvl mb-2 p-2">#}
+{#    <div class="d-grid gap-2">#}
 
-        {% else %}
-            <a class="btn btn-primary" href="{% url 'users:register' %}">Регистрация</a>
-            <a class="btn btn-primary" href="{% url 'users:login' %}">Авторизация</a>
-        {% endif %}
+{#            <div class=""><p>Привет: {{ user.username }}</p></div>#}
+{#            <a class="btn " href="{% url 'users:profile' %}">Профиль</a>#}
+{#            <a class="btn " href="{% url 'users:logout' %}">Выйти</a>#}
 
-    </div>
-</div> <!-- sidebar_authorization -->
+
+<div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+    {% if user.is_authenticated %}
+        <div class="accordion-item ">
+            <h2 class="accordion-header ">
+                <button class="accordion-button box_lvl collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                        aria-controls="flush-collapseOne">
+                    <div class=""><p>Привет: {{ user.username }}</p></div>
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                 data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body box_lvl d-grid gap-2">
+                    <a class="btn " href="{% url 'users:profile' %}">Профиль</a>
+                    <a class="btn " href="{% url 'users:logout' %}">Выйти</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="accordion-item ">
+            <h2 class="accordion-header ">
+                <button class="accordion-button box_lvl collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                        aria-controls="flush-collapseOne">
+                    <div class=""><p>Войти</p></div>
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                 data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body box_lvl d-grid gap-2">
+                    <a class="btn " href="{% url 'users:register' %}">Регистрация</a>
+                    <a class="btn " href="{% url 'users:login' %}">Авторизация</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+
+
+{##}
+{#    </div>#}
+{#</div> <!-- sidebar_authorization -->#}

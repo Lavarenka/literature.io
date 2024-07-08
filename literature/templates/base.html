@@ -29,34 +29,33 @@
 </head>
 
 <body>
-<wrapper class="wrapper">
+<!-- ########### nav_bar ############################ -->
+{% include 'inc/_header.html' %}
+<!-- ########### /nav_bar ############################ -->
 
-
-    <!-- ########### nav_bar ############################ -->
-    {% include 'inc/_header.html' %}
-    <!-- ########### /nav_bar ############################ -->
+<wrapper class="wrapper mt-4">
 
 
     <!-- ########### header ############################ -->
-    <header class="header box mb-2 parallax">
-        <div class="parallax__body rounded">
-            <div class="header_top  p-1   parallax__container ">
-                <div class="parralax_label">Литература</div>
-                <h1 class="parallax__title">Всё о книгах </h1>
-            </div> <!-- header_top -->
-            <div class="parallax__images images-parralax">
-                <div class="images-parralax__item">
-                    <div class="images-parralax__fon"></div>
-                </div>
-                <div class="images-parralax__item">
-                    <div class="images-parralax__forest"></div>
-                </div>
-                <div class="images-parralax__item">
-                    <div class="images-parralax__book"></div>
-                </div>
-            </div> <!-- parallax__images-->
-        </div> <!-- parallax__body-->
-    </header> <!-- header -->
+{#    <header class="header box mb-2 parallax">#}
+{#        <div class="parallax__body rounded">#}
+{#            <div class="header_top  p-1   parallax__container ">#}
+{#                <div class="parralax_label">Литература</div>#}
+{#                <h1 class="parallax__title">Всё о книгах </h1>#}
+{#            </div> <!-- header_top -->#}
+{#            <div class="parallax__images images-parralax">#}
+{#                <div class="images-parralax__item">#}
+{#                    <div class="images-parralax__fon"></div>#}
+{#                </div>#}
+{#                <div class="images-parralax__item">#}
+{#                    <div class="images-parralax__forest"></div>#}
+{#                </div>#}
+{#                <div class="images-parralax__item">#}
+{#                    <div class="images-parralax__book"></div>#}
+{#                </div>#}
+{#            </div> <!-- parallax__images-->#}
+{#        </div> <!-- parallax__body-->#}
+{#    </header> <!-- header -->#}
     <!-- ########### /header ############################ -->
 
     <!-- ########### main ############################## -->
@@ -64,7 +63,7 @@
         <div class="main_container container-fluid">
             <div class="main_container_row row d-flex flex-row">
                 <!-- ######## index ########## -->
-                <container class="col-xl-9 box me-2 d-flex flex-column index">
+                <container class="col-xl-9   d-flex flex-column index">
                     {% if messages %}
                         {% for message in messages %}
                             {% if message.tags == 'error' %}
@@ -83,23 +82,23 @@
                     {% endblock content %}
 
 
-                    {% include  'inc/pagination.html' %}
+
 
                 </container> <!-- index -->
                 <!-- ######## /index ########## -->
 
 
                 <!-- ######## sidebar ########## -->
-                <container class="col d-flex box sidebar d-none d-xl-block">
-                    <div class="d-flex  sidebar_container">
+                <container class="col d-flex  sidebar d-none d-xl-block container-fluid">
+
                         <div class="sidebar_container_row d-flex flex-column  ">
 
                             <!-- ### Авторизация ### -->
-                            {%  include 'inc/_authorization.html' %}
+                            {% include 'inc/_authorization.html' %}
                             <!-- ### /Авторизация ### -->
 
                             <!-- ### Жанры ### -->
-                            <div class="border sidebar_genre box_lvl mb-2 p-2">
+                            <div class=" sidebar_genre box_lvl mb p-2">
                                 <div class="">
                                     <div class="text-center ">Жанры</div>
                                     <hr>
@@ -112,7 +111,7 @@
                                 <!-- ### /Жанры ### -->
 
                                 <!-- ### Избранное ### -->
-                                <div class="border  sidebar_favorites p-2">
+                                <div class="  sidebar_favorites p-2">
                                     <div class="">
                                         <div class="text-center ">Популярные книги</div>
                                         <hr>
@@ -125,7 +124,7 @@
 
                             </div> <!-- sidebar_container_row-->
                         </div> <!-- sidebar_container-->
-                    </div>
+
                 </container> <!-- sidebar-->
                 <!-- ######## /sidebar ########## -->
             </div> <!-- row -->
@@ -134,13 +133,13 @@
     </main> <!-- main-->
     <!-- ########### /main ############################# -->
 
-    <!-- ########### footer ############################ -->
-    {% include 'inc/_footer.html' %}
-    <!-- ########### /footer ############################ -->
+
 
 
 </wrapper>
-
+    <!-- ########### footer ############################ -->
+    {% include 'inc/_footer.html' %}
+    <!-- ########### /footer ############################ -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

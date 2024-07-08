@@ -18,6 +18,4 @@ urlpatterns = [
     # path('register/', register, name='register'),  # регистрация
     # path('login/', login, name='login'),  # авторизация
 
-
-
 ]
