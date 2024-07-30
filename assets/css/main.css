@@ -218,4 +218,57 @@ li, a {
     padding: 16px;
 }
 
+
+.sidebar_filter__btn{
+    background-color: #312B45;
+    color: white;
+    padding: 20px 16px;
+    box-sizing: border-box;
+    border: none;
+}
+
+.sidebar_filter__btn:hover,
+.sidebar_filter__btn:active,
+.sidebar_filter__btn:focus
+{
+    background-color: #7D788EFF;
+}
+
+.sidebar_filter__dropdown{
+    background-color: #312B45;
+
+}
+.sidebar_filter__dropdown a{
+    color: rgba(217,215,224,.8);
+}
+
+.sidebar_filter__dropdown a:hover{
+    color: white;
+    background-color: #312B45;
+}
+
+.tag{
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.close_filter a{
+    color: white;
+    font-size: 17px;
+    transition: all 0.3s ease 0s;
+}
+.close_filter a:hover{
+    color: gray;
+    font-size: 17px;
+}
 /* /main */
+
+/* footer */
+
+.message i{
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+/* /footer */
