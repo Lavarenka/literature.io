@@ -17,7 +17,7 @@
 .hidden-block {
     /*display: none;*/
     background-color: black;
-     font-size: 15px;
+    font-size: 15px;
     color: white;
 
 
@@ -44,3 +44,5 @@
 .on-hover:hover {
 
 }
+
+
