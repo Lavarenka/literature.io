@@ -22,50 +22,56 @@
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 </head>
 <body>
-<div class="wrapper">
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row header_row d-flex align-items-center">
-                <div class="col-1">book</div>
-                <div class="col">
+<div class="wrapper ">
+    <header class="header   m-xxl-0 mx-2">
+        <div class="container-fluid ">
+            <div class="row header_row  d-flex align-items-center">
+                <div class="col-lg-1 col order-lg-1 order-2 d-flex justify-content-center">book</div>
+                <div class="col-lg col-1 order-lg-2 order-1 ">
                     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
                         <div class="container-fluid">
-
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav  ">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Главная</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Книги</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Аудиокниги</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">О нас</a>
-                                    </li>
+                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                                 aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Меню</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <ul class="navbar-nav  ">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Книги</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Аудиокниги</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">О нас</a>
+                                        </li>
 
-                                </ul>
+                                    </ul>
+                                </div>
 
                             </div>
                         </div>
                     </nav>
 
                 </div>
-                <div class="col-4">
+                <div class="col-4 order-3 d-flex justify-content-center">
                     <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-xl  "></i>
                     <i class="fa-solid fa-key fa-xl"></i>
                 </div>
             </div>
         </div>
         <hr>
-        <div class="container">
+        <div class="container d-none d-lg-block">
             <div class="row">
                 <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -214,9 +220,9 @@
             </div>
         </div>
     </header>
-    <main class="main">
+    <main class="main m-xxl-0 mx-2">
         <!-- breadcrumb -->
-        <div class="breadcrumb_main">
+        <div class="breadcrumb_main ">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -228,7 +234,7 @@
         <!-- /breadcrumb -->
 
         <!-- description -->
-        <div class="main_description">
+        <div class="main_description ">
             <div class="main_description__title">
                 <h1>Книги скачать онлайн</h1>
             </div>
@@ -255,7 +261,7 @@
             <div class="sidebar__main ">
 
                 <div class="row sidebar_main__filter ">
-                    <div class="col ">
+                    <div class="col-md col-12 m-md-0 mb-2">
                         <div class=" dropdown sidebar_filter">
                             <button class="btn w-100 dropdown-toggle  sidebar_filter__btn" type="button"
                                     data-bs-toggle="dropdown"
@@ -282,7 +288,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col ">
+                    <div class="col-md col-12 m-md-0 mb-2">
                         <div class=" dropdown sidebar_filter">
                             <button class="btn w-100 dropdown-toggle sidebar_filter__btn" type="button"
                                     data-bs-toggle="dropdown"
@@ -309,7 +315,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col ">
+                    <div class="col-md col-12 m-md-0 mb-2">
                         <div class=" dropdown sidebar_filter">
                             <button class="btn w-100 dropdown-toggle sidebar_filter__btn" type="button"
                                     data-bs-toggle="dropdown"
@@ -336,7 +342,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col ">
+                    <div class="col-md col-12 m-md-0 mb-2">
                         <div class=" dropdown sidebar_filter">
                             <button class="btn w-100 dropdown-toggle sidebar_filter__btn" type="button"
                                     data-bs-toggle="dropdown"
@@ -382,18 +388,28 @@
 
         </div>
         <!-- /site bar filter -->
+
         <div class="main_book">
             <div class="container-fluid ">
                 <div class="d-flex flex-row  flex-wrap">
                     <div class=" m-2">
                         <div class="on-hover _ibg">
                             <img src="assets/img/books/books_preview/g1d55ps45n.jpg" alt="">
-                            <div class="hidden-block d-flex justify-content-center align-items-end">
-                                <p>Иванов Книга </p>
-                            </div>
+                            <div class="hidden-block d-flex justify-content-start align-items-end ">
+                                <div class="p-1 d-flex flex-column justify-content-start ">
+                                    <div class=""><p>Ж: Фантастика S.T.A.L.K.E.R.</p></div>
+                                    <div class=""><p>S: S.T.A.L.K.E.R.</p></div>
+                                    <div class=""><p># 5</p></div>
+                                    <div class=""><p>Автор: Орехов Василий</p></div>
+                                    <div class=""><p>Год: 2020</p></div>
 
+                                </div>
+                            </div>
                         </div>
-                        <p>Иванов Книга</p>
+                        <div class="">
+                            <p>Иванов Книга</p>
+                        </div>
+
                     </div>
                     <div class=" m-2">
                         <div class="on-hover _ibg">
@@ -481,7 +497,7 @@
         </div>
 
     </main>
-    <footer class="footer mt-4">
+    <footer class="footer m-xxl-0 mx-2 mt-4">
         <div class="container-fluid ">
             <hr>
             <div class="row">

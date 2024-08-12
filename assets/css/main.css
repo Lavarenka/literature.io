@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import "product.css";
+@import "post.css";
 
 /*Обнуление*/
 * {
@@ -167,6 +168,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     /*border: 1px solid white;*/
+
 }
 
 main.main {
@@ -175,7 +177,7 @@ main.main {
 
 
 .border_black {
-    border: 1px solid black;
+    border: 1px solid red;
 }
 
 
