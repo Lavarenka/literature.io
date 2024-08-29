@@ -49,12 +49,16 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Книги</a>
                                         </li>
+
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Аудиокниги</a>
+                                            <a class="nav-link" href="#" data-bs-toggle="modal"
+                                               data-bs-target="#audiobooksModal">Аудиокниги</a>
                                         </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">О нас</a>
                                         </li>
+
 
                                     </ul>
                                 </div>
@@ -64,12 +68,20 @@
                     </nav>
 
                 </div>
-                <div class="col-4 order-3 d-flex justify-content-center">
-                    <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-xl  "></i>
-                    <i class="fa-solid fa-key fa-xl"></i>
+                <div class="col-2 order-3 d-flex justify-content-evenly">
+                    <!-- search -->
+                    <a href="" data-bs-toggle="modal"
+                       data-bs-target="#searchModal"> <i
+                            class="fa-solid fa-magnifying-glass fa-rotate-90 fa-xl"></i></a>
+                    <!-- /search -->
+
+
+                    <a href=""><i class="fa-solid fa-key fa-xl"></i></a>
+
                 </div>
             </div>
         </div>
+
         <hr>
         <div class="container d-none d-lg-block">
             <div class="row">
@@ -407,7 +419,7 @@
                             </div>
                         </div>
                         <div class="">
-                            <p>Иванов Книга</p>
+                            <a href="post.html" target="_blank">иванов</a>
                         </div>
 
                     </div>
@@ -497,6 +509,64 @@
         </div>
 
     </main>
+
+    <!-- ####################### MODAL ################################# -->
+    <!-- Modal  audiobooks-->
+    <div class="modal fade" id="audiobooksModal" tabindex="-1"
+         aria-labelledby="audiobooksModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Аудиокниги</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Данный раздел в разработке
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal audiobooks-->
+    <!-- Modal search -->
+    <div class="modal fade" id="searchModal" tabindex="-1"
+         aria-labelledby="searchModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Поиск</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <nav class="navbar bg-body-tertiary">
+                        <div class="container-fluid">
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search"
+                                       placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success"
+                                        type="submit">Search
+                                </button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /Modal search -->
+
+    <!-- /####################### MODAL ################################# -->
+
+
     <footer class="footer m-xxl-0 mx-2 mt-4">
         <div class="container-fluid ">
             <hr>

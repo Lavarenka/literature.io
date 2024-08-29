@@ -49,6 +49,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Книги</a>
                                         </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Аудиокниги</a>
                                         </li>
@@ -66,8 +67,11 @@
                 </div>
                 <div class="col-4 order-3 d-flex justify-content-center">
                     <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-xl  "></i>
-                    <i class="fa-solid fa-key fa-xl"></i>
+                    <i class="fa-solid fa-key fa-xl" title="awd"></i>
+
                 </div>
+
+
             </div>
         </div>
         <hr>
@@ -96,16 +100,17 @@
                 <div class=" 1floor ">
                     <div class="container-fluid">
                         <div class="d-flex flex-column flex-md-row">
-                            <div class="post_title d-block d-md-none"><h1>Юрий Смирнов — Калейдоскоп</h1></div>
+                            <div class="post_title d-block d-md-none  "><h1>Юрий Смирнов — Калейдоскоп</h1></div>
                             <div class="">
-                                <div class="post_image _ibg ">
+                                <div class="post_image _ibg m-3">
                                     <img src="assets/img/books/books_preview/g1d55ps45n.jpg" alt="">
                                 </div>
                             </div>
 
-                            <div class="post_description  ">
-                                <div class="d-flex flex-column ">
-                                    <div class="post_title d-none d-md-block"><h1>Юрий Смирнов — Калейдоскоп</h1></div>
+                            <div class="post_characteristics  ">
+                                <div class="d-flex flex-column w-100">
+                                    <div class="post_title d-none d-md-block text-center"><h1 data-text="back in black">
+                                        back in black</h1></div>
 
                                     <p>Жанр: <a href="#">Фантастика</a> <a href="#">S.T.A.L.K.E.R.</a>
                                     </p>
@@ -119,7 +124,9 @@
                     </div>
 
                 </div>
-                <div class="2floor my-2">
+
+                <!--  -->
+                <div class="post_description my-2">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet fuga laborum perspiciatis! A
                         accusamus accusantium alias architecto, consequatur doloremque et fugiat modi nisi numquam
                         pariatur quod, repudiandae sapiente veritatis voluptatum.</p>
@@ -133,6 +140,8 @@
                         accusamus accusantium alias architecto, consequatur doloremque et fugiat modi nisi numquam
                         pariatur quod, repudiandae sapiente veritatis voluptatum.</p>
                 </div>
+                <div class="post_download d-flex justify-content-end mx-3">Скачать</div>
+
                 <div class="3floor">
                     <div class="">
                         <h2>Все книги серии:</h2>
@@ -156,7 +165,6 @@
                                 <div class="">
                                     <p>Иванов Книга</p>
                                 </div>
-
                             </div>
                             <div class=" m-2">
                                 <div class="on-hover _ibg">
@@ -164,7 +172,6 @@
                                     <div class="hidden-block d-flex justify-content-center align-items-end">
                                         <p>Иванов Книга </p>
                                     </div>
-
                                 </div>
                                 <p>Иванов Книга</p>
                             </div>
@@ -174,13 +181,13 @@
                 <div class="4floor">
                     <div class="d-flex justify-content-between">
                         <div class="">
-                            <h2>Отзывы: 2</h2>
+                            <h2>Комментарии: 2</h2>
                         </div>
                         <div class="">
-                            <a href="">Оставить отзыв</a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#commentModal">Оставить комментарий</a>
                         </div>
                     </div>
-                    <div class="">
+                    <div class="comment_block">
                         <div class="container-fluid d-none d-lg-block">
                             <div class="row">
                                 <div id="carouselExample" class="carousel slide ">
@@ -237,7 +244,9 @@
                                                     <div class="col  mx-3">
                                                         <div class="comment_item">
                                                             <div class="">admin</div>
-                                                            <div class="py-3 comment_item__text">this this is good!is good!!</div>
+                                                            <div class="py-3 comment_item__text">this this is good!is
+                                                                good!!
+                                                            </div>
                                                             <div class="d-flex justify-content-between">
                                                                 <div class="">10 августа 2024</div>
                                                                 <div class="">like</div>
@@ -295,14 +304,37 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
         </div>
-
     </main>
+    <!-- ####################### MODAL ################################# -->
+
+    <!-- Modal comment-->
+    <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Отмена
+                    </button>
+                    <button type="button" class="btn btn-primary">Отправть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal comment-->
+
+    <!-- /####################### MODAL ################################# -->
     <footer class="footer m-xxl-0 mx-2 mt-4">
         <div class="container-fluid ">
             <hr>
