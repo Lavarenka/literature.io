@@ -1,0 +1,48 @@
+.on-hover {
+    width: 153px;
+    height: 235px;
+
+    border-radius: 10%;
+    position: relative;
+    overflow: hidden;
+    object-fit: cover;
+    transition: all 0.3s ease 0s;
+
+    -webkit-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.hidden-block {
+    /*display: none;*/
+    background-color: black;
+    font-size: 15px;
+    color: white;
+
+
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+}
+
+.on-hover:hover .hidden-block {
+    /*display: block;*/
+    opacity: 0.7;
+    border-radius: 10%;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+
+
+}
+
+.on-hover:hover {
+
+}
+
+
