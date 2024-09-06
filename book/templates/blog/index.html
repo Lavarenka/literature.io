@@ -158,9 +158,10 @@
         <div class="breadcrumb_main ">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{% url 'home' %}">{{ title }}</a></li>
-                    {#                    <li class="breadcrumb-item"><a href="#">Library</a></li>#}
-                    {#                    <li class="breadcrumb-item active" aria-current="page">Data</li>#}
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                    {% if title != 'Главная' %}
+                        <li class="breadcrumb-item">{{ title }}</li>
+                    {% endif %}
                 </ol>
             </nav>
         </div>

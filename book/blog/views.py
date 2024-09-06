@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.db.models import F
-from blog.models import Post, Genre
+from blog.models import Post, Genre, Series
 
 
 class Home(ListView):
@@ -61,4 +61,23 @@ class PostGenre(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = Genre.objects.get(slug=self.kwargs['slug'])
         context['subtitle'] = 'Жанры'
+        return context
+
+class PostSeries(ListView):
+    """
+    серии книг
+    """
+    template_name = 'blog/index.html'
+    context_object_name = 'posts'
+
+    allow_empty = False  # ошибка при пустой категории
+
+    def get_queryset(self):
+        return Post.objects.filter(series__slug=self.kwargs['slug']).filter(is_published=True).order_by('number_series')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = Series.objects.get(slug=self.kwargs['slug'])
+        context['subtitle'] = 'Серия книг'
+
         return context
