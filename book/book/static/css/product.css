@@ -45,4 +45,11 @@
 
 }
 
+.main_item{
+    overflow: hidden;
+
+    max-width: 154px;
+}
+
+
 
