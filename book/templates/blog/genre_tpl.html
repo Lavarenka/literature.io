@@ -1,20 +1,20 @@
-<ul class="dropdown-menu  sidebar_filter__dropdown">
-    <li class="row p-2">
+<ul class="dropdown-menu sidebar_filter__dropdown">
+    <li class="row   p-2  d-flex flex-column  ">
+
         {% if  genres %}
-
-            {% for item in genres %}
-            <div class="col flex-column d-flex">
-                <a href="{{ item.get_absolute_url }}">{{ item.title }}</a><span class="badge">{{ item.genre.all.count }}</span>
-
+            <div class="align-content-start flex-wrap  d-flex ">
+                {% for item in genres %}
+                    <a href="{{ item.get_absolute_url }}" class="m-2">{{ item.title }} </a>
+                {% endfor genres %}
             </div>
-{#            <div class="col flex-column d-flex">#}
-{#                <a href="">menu</a>#}
-{#                <a href="">menu</a>#}
-{#                <a href="">menu</a>#}
-{#                <a href="">menu</a>#}
-{#            </div>#}
-            {% endfor genres %}
+
+
+
+
+
         {% endif %}
+
     </li>
+
 
 </ul>

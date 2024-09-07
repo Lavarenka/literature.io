@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from django.db.models import F
 from blog.models import Post, Genre, Series
 
@@ -63,6 +63,7 @@ class PostGenre(ListView):
         context['subtitle'] = 'Жанры'
         return context
 
+
 class PostSeries(ListView):
     """
     серии книг
@@ -81,3 +82,18 @@ class PostSeries(ListView):
         context['subtitle'] = 'Серия книг'
 
         return context
+
+
+class PostFilter(View):
+
+
+    def get(self, request, *args, **kwargs):
+        value = request.GET.get('sort')
+        print(self.request)
+        if value:
+            content = Post.objects.filter(is_published=True).order_by(value).reverse()
+        else:
+            content = Post.objects.filter(is_published=True)
+
+        return render(request, 'blog/index.html', {'posts': content})
+

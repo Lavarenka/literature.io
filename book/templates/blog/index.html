@@ -210,7 +210,7 @@
                             <button class="btn w-100 dropdown-toggle sidebar_filter__btn" type="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                Жанры
+                                Авторы
                             </button>
                             <ul class="dropdown-menu sidebar_filter__dropdown">
                                 <li class="row p-2">
@@ -264,22 +264,28 @@
                             <button class="btn w-100 dropdown-toggle sidebar_filter__btn" type="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                Жанры
+                                Сортировка
                             </button>
                             <ul class="dropdown-menu sidebar_filter__dropdown">
                                 <li class="row p-2">
-                                    <div class="col flex-column d-flex">
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                    </div>
-                                    <div class="col flex-column d-flex">
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                    </div>
+                                    <form action="{% url 'sorted' %}" method="get">
+                                        <div class="col flex-column d-flex">
+
+                                            <button class="but_sort m-2" type="submit" name="sort" value="views">
+                                                популярные
+                                            </button>
+                                            <button class="but_sort m-2" type="submit" name="sort" value="time_create">
+                                                Новые
+                                            </button>
+                                            <button class="but_sort m-2" type="submit" name="sort" value="-time_create">
+                                                Старые
+                                            </button>
+                                            <button class="but_sort m-2" type="submit" name="sort" value="year">Год выпуска
+                                            </button>
+
+                                        </div>
+                                    </form>
+
 
                                 </li>
 
@@ -289,10 +295,9 @@
                 </div>
                 <div class="row sidebar_main__tag my-3">
                     <div class="d-flex">
-                        <div class="tag me-3">Dark</div>
-                        <div class="tag me-3">Flex item</div>
-                        <div class="tag me-3">description</div>
-                        <div class="tag me-3">Fle</div>
+                        <a href="">
+                            <div class="tag me-3">Популярные</div>
+                        </a>
                     </div>
 
                 </div>
@@ -343,6 +348,7 @@
                             </div>
                             <div class="mt-2 main_item__title text-center">
                                 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+
                             </div>
 
                         </div>
