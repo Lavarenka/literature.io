@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+    <main class="main m-xxl-0 mx-2">
+        <!-- breadcrumb -->
+        <div class="breadcrumb_main ">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                    <li class="breadcrumb-item">{{ title }}</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- /breadcrumb -->
+        <hr>
+
+        <!--  -->
+        <!-- / -->
+
+        <div class="">
+            {% if user.is_authenticated %}
+
+
+
+                <div class="profile_title"><h1>{{ title }}</h1></div>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+
+                    {{ form.non_field_errors }}
+
+                    {% for f in form %}
+                        <div class="my-3 row">
+                            <label for="{{ f.id_for_label }}"
+                                   class="col-sm-3 col-form-label">{{ f.label }}</label>
+                            <div class="col-sm">
+                                {{ f }}
+                            </div>
+
+                            <div class="invalid-feedback">
+                                {{ f.errors }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="user_img_preview ">
+                        {% if user.image %}
+                            <img
+                                    src="{{ user.image.url }}"
+                                    alt="">
+                        {% else %}
+                            <img src="{% static 'img/no-name.png' %}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="d-flex">
+                        <input id="html" type="checkbox" class="me-2" required>
+                        <label for="html">капча</label>
+                    </div>
+
+                    <a href="{% url 'password-change' %}">Изменить пароль</a>
+                    <button type="submit" class="btn btn_reg my-3">Сохранить</button>
+
+                </form>
+            {% endif %}
+
+
+        </div>
+
+
+    </main>
+
+
+
+{% endblock %}

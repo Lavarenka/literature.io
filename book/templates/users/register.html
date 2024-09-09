@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+    <main class="main m-xxl-0 mx-2">
+        <!-- breadcrumb -->
+        <div class="breadcrumb_main ">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                    <li class="breadcrumb-item">{{ title }}</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- /breadcrumb -->
+
+
+        <!--  -->
+        <!-- / -->
+
+        <div class="">
+            {% if user.is_authenticated %}
+                <p>Для регистрации нужно выйти из аккаунта</p>
+            {% else %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
+                </form>
+            {% endif %}
+
+        </div>
+
+
+    </main>
+
+
+
+{% endblock %}

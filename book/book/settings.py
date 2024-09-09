@@ -26,6 +26,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# custom User model
+AUTH_USER_MODEL = "users.User"
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
 
     'blog',
     'main',
+    'users',
 ]
 
 MIDDLEWARE = [

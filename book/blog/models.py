@@ -98,8 +98,8 @@ class Post(models.Model):
         для адмнки
         """
         ordering = ['-time_create']  # сартирует и в админке и на сайте
-        verbose_name = 'Статью'  # название блога в админке
-        verbose_name_plural = 'Статьи'  # название блога в админке во множественном числе
+        verbose_name = 'Книгу'  # название блога в админке
+        verbose_name_plural = 'Книги'  # название блога в админке во множественном числе
 
 
 class Comment(models.Model):

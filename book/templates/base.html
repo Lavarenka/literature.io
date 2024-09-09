@@ -26,66 +26,8 @@
 </head>
 <body>
 <div class="wrapper ">
-    <header class="header   m-xxl-0 mx-2">
-        <div class="container-fluid ">
-            <div class="row header_row  d-flex align-items-center">
-                <div class="col-lg-1 col order-lg-1 order-2 d-flex justify-content-center"><a href="{% url 'home' %}">book</a></div>
-                <div class="col-lg col-1 order-lg-2 order-1 ">
-                    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-                        <div class="container-fluid">
-                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                                 aria-labelledby="offcanvasExampleLabel">
-                                <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Меню</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="offcanvas-body">
-                                    <ul class="navbar-nav  ">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Главная</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'home' %}">Книги</a>
-                                        </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#" data-bs-toggle="modal"
-                                               data-bs-target="#audiobooksModal">Аудиокниги</a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">О нас</a>
-                                        </li>
-
-
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </nav>
-
-                </div>
-                <div class="col-2 order-3 d-flex justify-content-evenly">
-                    <!-- search -->
-                    <a href="" data-bs-toggle="modal"
-                       data-bs-target="#searchModal"> <i
-                            class="fa-solid fa-magnifying-glass fa-rotate-90 fa-xl"></i></a>
-                    <!-- /search -->
-
-
-                    <a href=""><i class="fa-solid fa-key fa-xl"></i></a>
-
-                </div>
-            </div>
-        </div>
-        <hr>
-    </header>
+     {% include 'inc/_header.html' %} <!-- header -->
 
     {% block content %}
 
