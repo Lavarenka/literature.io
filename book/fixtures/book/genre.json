@@ -1,0 +1,90 @@
+[
+  {
+    "model": "blog.genre",
+    "pk": 2,
+    "fields": {
+      "title": "ЛитРПГ",
+      "slug": "litrpg"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 3,
+    "fields": {
+      "title": "Боевое фэнтези",
+      "slug": "boevoe-fentezi"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 4,
+    "fields": {
+      "title": "Ужасы и мистика:",
+      "slug": "uzhasy-i-mistika"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 5,
+    "fields": {
+      "title": "Альтернативная история",
+      "slug": "alternativnaya-istoriya"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 6,
+    "fields": {
+      "title": "Детективная фантастика",
+      "slug": "detektivnaya-fantastika"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 7,
+    "fields": {
+      "title": "Исторические приключения",
+      "slug": "istoricheskie-priklyucheniya"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 8,
+    "fields": {
+      "title": "Космическая фантастика",
+      "slug": "kosmicheskaya-fantastika"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 9,
+    "fields": {
+      "title": "Научная фантастика",
+      "slug": "nauchnaya-fantastika"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 10,
+    "fields": {
+      "title": "Попаданцы",
+      "slug": "popadancy"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 11,
+    "fields": {
+      "title": "Фэнтези",
+      "slug": "fentezi"
+    }
+  },
+  {
+    "model": "blog.genre",
+    "pk": 12,
+    "fields": {
+      "title": "S.T.A.L.K.E.R.",
+      "slug": "stalker"
+    }
+  }
+]

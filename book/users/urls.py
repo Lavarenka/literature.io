@@ -3,7 +3,7 @@ from django.contrib.auth.views import LogoutView, PasswordChangeView, PasswordCh
     PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from .views import *
 
-# app_name = "users"
+
 
 urlpatterns = [
     path('register/', RegisterUser.as_view(), name='register'),  # регистрация

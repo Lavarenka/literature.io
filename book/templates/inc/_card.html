@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<div class="main_item m-2 d-flex flex-column ">
+    <div class="on-hover _ibg">
+
+
+        {% if post.photo_preview %}
+            <img src="{{ post.photo_preview.url }}" alt="{{ post.title }}">
+        {% else %}
+            <img src="{% static 'img/no_image.png' %}" alt="{{ post.title }}">
+        {% endif %}
+
+
+        <a href="{{ post.get_absolute_url }}">
+            <div class="hidden-block d-flex justify-content-start align-items-end ">
+                <div class="p-2 d-flex flex-column justify-content-start ">
+
+                    {#                                            <div class=""><p>S: S.T.A.L.K.E.R.</p></div>#}
+                    {#                                            <div class=""><p># 5</p></div>#}
+                    <div class=""><p><i
+                            class="fa-solid fa-calendar-days fa-sm"></i> {{ post.year }}</p>
+                    </div>
+                    <div class=""><p><i class="fa-solid fa-at fa-sm"></i> {{ post.author }}</p>
+                    </div>
+                    <div class=""><p><i class="fa-solid fa-eye fa-sm"></i> {{ post.views }}</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="mt-2 main_item__title text-center">
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+
+    </div>
+
+</div>

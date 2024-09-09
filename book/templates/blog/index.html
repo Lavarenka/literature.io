@@ -211,24 +211,9 @@
                                     aria-expanded="false">
                                 Авторы
                             </button>
-                            <ul class="dropdown-menu sidebar_filter__dropdown">
-                                <li class="row p-2">
-                                    <div class="col flex-column d-flex">
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                    </div>
-                                    <div class="col flex-column d-flex">
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                        <a href="">menu</a>
-                                    </div>
-
-                                </li>
-
-                            </ul>
+                            <!-- authors -->
+                            {% show_author %}
+                            <!-- /authors -->
                         </div>
                     </div>
                     <div class="col-md col-12 m-md-0 mb-2">
@@ -279,7 +264,8 @@
                                             <button class="but_sort m-2" type="submit" name="sort" value="-time_create">
                                                 Старые
                                             </button>
-                                            <button class="but_sort m-2" type="submit" name="sort" value="year">Год выпуска
+                                            <button class="but_sort m-2" type="submit" name="sort" value="year">Год
+                                                выпуска
                                             </button>
 
                                         </div>
@@ -315,42 +301,9 @@
             <div class="container-fluid ">
                 <div class="d-flex flex-row  flex-wrap">
                     {% for post  in posts %}
-                        <div class="main_item m-2 d-flex flex-column ">
-                            <div class="on-hover _ibg">
 
 
-                                {% if post.photo_preview %}
-                                    <img src="{{ post.photo_preview.url }}" alt="{{ post.title }}">
-                                {% else %}
-                                    <img src="{% static 'img/no_image.png' %}" alt="{{ post.title }}">
-                                {% endif %}
-
-
-                                <a href="{{ post.get_absolute_url }}">
-                                    <div class="hidden-block d-flex justify-content-start align-items-end ">
-                                        <div class="p-2 d-flex flex-column justify-content-start ">
-
-                                            {#                                            <div class=""><p>S: S.T.A.L.K.E.R.</p></div>#}
-                                            {#                                            <div class=""><p># 5</p></div>#}
-                                            <div class=""><p><i
-                                                    class="fa-solid fa-calendar-days fa-sm"></i> {{ post.year }}</p>
-                                            </div>
-                                            <div class=""><p><i class="fa-solid fa-at fa-sm"></i> {{ post.author }}</p>
-                                            </div>
-                                            <div class=""><p><i class="fa-solid fa-eye fa-sm"></i> {{ post.views }}</p>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="mt-2 main_item__title text-center">
-                                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-
-                            </div>
-
-                        </div>
+                        {% include 'inc/_card.html' %} <!-- card -->
                     {% endfor %}
 
 

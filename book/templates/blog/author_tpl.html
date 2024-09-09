@@ -1,10 +1,10 @@
 <ul class="dropdown-menu sidebar_filter__dropdown">
     <li class="row   p-2  d-flex flex-column  ">
-        {% if  genres %}
+        {% if  authors %}
             <div class="align-content-start flex-wrap  d-flex ">
-                {% for item in genres %}
+                {% for item in authors %}
                     <a href="{{ item.get_absolute_url }}" class="m-2">{{ item.title }} </a>
-                {% endfor genres %}
+                {% endfor authors %}
             </div>
         {% endif %}
     </li>

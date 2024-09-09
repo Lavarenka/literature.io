@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
+
 
 .post_image {
     width: 230px;
@@ -81,4 +81,14 @@ h1::after {
 
 .modal-content{
     background-color: #1f1b2e;
+}
+
+.post_characteristics__details{
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    width: auto;
 }

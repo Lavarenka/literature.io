@@ -78,7 +78,7 @@ class Post(models.Model):
 
     genre = models.ManyToManyField(Genre, related_name='genre',
                                    verbose_name='Жанры')
-    series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='series',
+    series = models.ForeignKey(Series, on_delete=models.SET_NULL, null=True, related_name='post',
                                verbose_name='Серии книг',
                                blank=True)  # связываем категории, PROTECT запрещает удаление если есть посты
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='author',
@@ -108,7 +108,6 @@ class Comment(models.Model):
         get_user_model() / функция для получения модели пользователя
     """
 
-    # name = models.CharField(max_length=100, verbose_name='Имя пользователя', blank=True, null=True)
 
     content = models.TextField(verbose_name='Текст')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
@@ -121,8 +120,3 @@ class Comment(models.Model):
         verbose_name = 'Комментарий'  # название блога в админке
         verbose_name_plural = 'Комментарии'  # название блога в админке во множественном числе
 
-    class Meta:
-        """
-        для адмнки
-        """
-        ordering = ['-time_create']  # сартирует и в админке и на сайте

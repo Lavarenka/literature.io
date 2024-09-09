@@ -1,0 +1,155 @@
+[
+
+  {
+    "model": "blog.post",
+    "pk": 8,
+    "fields": {
+      "title": "Апокалипсис мечты2. Второй этап",
+      "slug": "apokalipsis-mechty2-vtoroj-etap",
+      "content": "Апокалипсис начался неожиданно, принеся с собой систему и зомби вирус, большинство погибнет, но мне плевать, я просто буду наслаждаться своей мечтой, воплотившейся в реальность.",
+      "time_create": "2024-09-09T15:23:43.230Z",
+      "time_update": "2024-09-09T15:53:11.567Z",
+      "photo_preview": "photos/photo_preview/dnevniki-tenej_Z7CPV3H.jpg",
+      "photo_post": "photos/photo_post/dnevniki-tenej_o0MezRv.jpg",
+      "photo_header": "",
+      "views": 23,
+      "year": 2024,
+      "number_series": 1,
+      "file_book": "books/Bystrieie_vsiekh_-_Abyssalgod_kCUjgyx.fb2.zip",
+      "series": null,
+      "author": 1,
+      "is_published": true,
+      "genre": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 9,
+    "fields": {
+      "title": "Рыцари смятого бронелиста2",
+      "slug": "rycari-smyatogo-bronelista2",
+      "content": "Ну ладно, цель у тебя есть — уничтожить вторгшихся на Землю пришельцев. Есть команда, ресурсы, даже девушка, вроде как нарисовалась. Но приходится оглядываться на тени, сомневаться даже в собственном здравомыслии. Как переиграть вездесущих Чужих? Кому верить? Ещё и враг не дремлет и норовит долбануть тяжелым и твердым сюрпризом по голове. Отряд начинает и…",
+      "time_create": "2024-09-09T15:50:07.722Z",
+      "time_update": "2024-09-09T18:18:57.464Z",
+      "photo_preview": "photos/photo_preview/rytsari_smiatogho_bronielista_-_paviel_shviedov.jpg",
+      "photo_post": "photos/photo_post/rytsari_smiatogho_bronielista_-_paviel_shviedov.jpg",
+      "photo_header": "",
+      "views": 16,
+      "year": 2024,
+      "number_series": 2,
+      "file_book": "books/Bystrieie_vsiekh_-_Abyssalgod_b0Fo1OQ.fb2.zip",
+      "series": 1,
+      "author": 2,
+      "is_published": true,
+      "genre": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 10,
+    "fields": {
+      "title": "Сдохни, но сделай2",
+      "slug": "sdohni-no-sdelaj2",
+      "content": "Чужие вновь нанесли удар по Новосибирску. Да, вдобавок, ещё какую-то гадость замыслили. Не пора ли закончить эту войну? Похоже, обе стороны конфликта задают себе одинаковые вопросы. Только вот кто поставит жирную точку? Почему-то всё указывает, что решать будет всё та же Злобная танковая рота. Пусть она обескровлена и разъединена, но ведь собрать ободранные жерновами войны пальцы в единый кулак можно. Стоит лишь захотеть.",
+      "time_create": "2024-09-09T15:51:16.117Z",
+      "time_update": "2024-09-09T18:51:14.924Z",
+      "photo_preview": "photos/photo_preview/sdokhni_no_sdielai_-_paviel_shviedov.jpg",
+      "photo_post": "photos/photo_post/sdokhni_no_sdielai_-_paviel_shviedov.jpg",
+      "photo_header": "",
+      "views": 9,
+      "year": 2024,
+      "number_series": 1,
+      "file_book": "books/Bystrieie_vsiekh_-_Abyssalgod_EACCtEM.fb2.zip",
+      "series": 1,
+      "author": 2,
+      "is_published": true,
+      "genre": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 11,
+    "fields": {
+      "title": "Рейд дающий надежду 22",
+      "slug": "rejd-dayushij-nadezhdu-22",
+      "content": "Пора уже заканчивать этот рейд, тем более результат, пусть и неожиданный, есть. Но… И снова ревут моторы танков, снова грохочут орудия. Лишь бы выжить.",
+      "time_create": "2024-09-09T15:52:09.957Z",
+      "time_update": "2024-09-09T20:04:25.918Z",
+      "photo_preview": "photos/photo_preview/rieid_daiushchii_nadiezhdu_2_-_paviel_shviedov.jpg",
+      "photo_post": "photos/photo_post/rieid_daiushchii_nadiezhdu_2_-_paviel_shviedov.jpg",
+      "photo_header": "",
+      "views": 170,
+      "year": 2024,
+      "number_series": 6,
+      "file_book": "books/Bystrieie_vsiekh_-_Abyssalgod_dk6LcDr.fb2.zip",
+      "series": 1,
+      "author": 2,
+      "is_published": true,
+      "genre": [
+        3,
+        5,
+        7
+      ]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 12,
+    "fields": {
+      "title": "Мышеловка2",
+      "slug": "myshelovka2",
+      "content": "Все, кто попадает в Зону, лишаются памяти. Жизнь начинается с чистого листа по новым правилам. Борьба за ресурсы, сражения с мародерами и опасными тварями – все, что остается людям, потому что отсюда нет выхода. Они не помнят, кем были раньше, но в душе каждого сталкера дремлет фантомная память о Большом Мире, что за пределами Зоны. Они не верят, не просят, и единственное, чего боятся, – превратиться в игрушки таинственных сил, управляющих Зоной, и окончательно потерять себя.\r\n\r\nТак было долгие годы, пока не поползли слухи, что появился человек, способный победить черных сталкеров и открыть путь в Большой Мир… Но никто, даже сам избранный, не догадывается, что происходит НА САМОМ ДЕЛЕ!",
+      "time_create": "2024-09-09T20:30:36.832Z",
+      "time_update": "2024-09-09T20:31:02.048Z",
+      "photo_preview": "photos/photo_preview/myshelovka.webp",
+      "photo_post": "photos/photo_post/myshelovka.webp",
+      "photo_header": "",
+      "views": 2,
+      "year": 2024,
+      "number_series": 4,
+      "file_book": "books/Bystrieie_vsiekh_-_Abyssalgod_DBIcSTh.fb2.zip",
+      "series": 2,
+      "author": 3,
+      "is_published": true,
+      "genre": [
+        12,
+        3,
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 13,
+    "fields": {
+      "title": "Хранитель Зоны2",
+      "slug": "hranitel-zony2",
+      "content": "Некоторые верят, что у Зоны есть Хранитель. Тем, кто живет по чести и совести, он помогает: защищает в битвах, замыливает взгляд врага, указывает кратчайший путь к цели, выводит к редким артефактам. Одни утверждают, что живет он в хижине в Танцующем лесу, другие – что в месте, которое все время меняется, третьи – что он повсюду и нигде, его, как любого духа, можно призвать, если знать имя. Большинство вообще не верит в сказки. Но любой сталкер считает за честь обогреть безоружного путника, который просится к костру… Вдруг это и есть Хранитель?",
+      "time_create": "2024-09-09T20:32:58.972Z",
+      "time_update": "2024-09-09T20:32:58.972Z",
+      "photo_preview": "photos/photo_preview/hranitel-zony.webp",
+      "photo_post": "photos/photo_post/hranitel-zony.webp",
+      "photo_header": "",
+      "views": 0,
+      "year": 2024,
+      "number_series": 5,
+      "file_book": "books/Bystrieie_vsiekh_-_Abyssalgod_Pk5JhsL.fb2.zip",
+      "series": 2,
+      "author": 3,
+      "is_published": true,
+      "genre": [
+        12,
+        5,
+        3
+      ]
+    }
+  }
+]
