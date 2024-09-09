@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['*']
 # custom User model
 AUTH_USER_MODEL = "users.User"
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -137,3 +136,21 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# авторизация по логину и мылу
+# AUTHENTICATION_BACKENDS = [
+#     "django.contrib.auth.backends.ModelBackend",
+#     'users.authentication.EmailAuthBackend',
+# ]
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'Temya.Kustodrot@yandex.ru'
+EMAIL_HOST_PASSWORD = 'ioirtoalngankzvq'
+EMAIL_USE_SSL = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
