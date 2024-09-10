@@ -1,0 +1,71 @@
+{% load static %}
+{% if posts %}
+
+
+
+
+
+
+    <div class="container d-none d-lg-block">
+
+        <div class="row">
+            <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active " data-bs-interval="3000">
+                        <div class="container">
+                            <div class="row">
+                                {% for post in posts %}
+                                    <div class="col">
+                                        <div class="on-hover _ibg">
+
+
+        {% if post.photo_preview %}
+            <img src="{{ post.photo_preview.url }}" alt="{{ post.title }}">
+        {% else %}
+            <img src="{% static 'img/no_image.png' %}" alt="{{ post.title }}">
+        {% endif %}
+
+
+        <a href="{{ post.get_absolute_url }}">
+            <div class="hidden-block d-flex justify-content-start align-items-end ">
+                <div class="p-2 d-flex flex-column justify-content-start ">
+
+                    {#                                            <div class=""><p>S: S.T.A.L.K.E.R.</p></div>#}
+                    {#                                            <div class=""><p># 5</p></div>#}
+                    <div class=""><p><i
+                            class="fa-solid fa-calendar-days fa-sm"></i> {{ post.year }}</p>
+                    </div>
+                    <div class=""><p><i class="fa-solid fa-at fa-sm"></i> {{ post.author }}</p>
+                    </div>
+                    <div class=""><p><i class="fa-solid fa-eye fa-sm"></i> {{ post.views }}</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </a>
+    </div>
+
+                                    </div>
+                                    {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="4000">
+                                        <div class="container">
+                                        <div class="row">
+                                    {% endif %}
+                                {% endfor %}
+                                </div>
+                                </div>
+                                </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endif %}

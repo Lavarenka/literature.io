@@ -1,0 +1,11 @@
+<ul class="dropdown-menu sidebar_filter__dropdown">
+    <li class="row   p-2  d-flex flex-column  ">
+        {% if  series %}
+            <div class="align-content-start flex-wrap  d-flex ">
+                {% for item in series %}
+                    <a href="{{ item.get_absolute_url }}" class="m-2">{{ item.title }} </a>
+                {% endfor series %}
+            </div>
+        {% endif %}
+    </li>
+</ul>

@@ -88,17 +88,21 @@
                 </div>
                 <div class="text-end mb-3">
                     {% if post.file_book %}
-                        <button type="button" class="btn btn-primary  "><a href="{{ post.file_book.url }}">Скачать
+                        <button type="button" class="btn   "><a href="{{ post.file_book.url }}">Скачать
                             fb-2</a></button>
+
 
                     {% endif %}
                 </div>
-
-                <div class="3floor">
+            {% if post.series %}
+            	<div class="3floor">
                     <div class="">
                         <h2>Все книги серии:</h2>
                     </div>
                     <div class="d-flex flex-row  flex-wrap">
+                    {% if series_book %}
+
+
                         {% for s in series_book %}
                             <div class="main_item m-2 d-flex flex-column ">
                                 <div class="on-hover _ibg">
@@ -136,9 +140,12 @@
                             </div>
 
                         {% endfor %}
+                        {% endif %}
                     </div>
 
                 </div>
+            {% endif %}
+
                 <div class="4floor">
                     <div class="d-flex justify-content-between">
                         <div class="">
@@ -149,29 +156,17 @@
                                 <a href="" data-bs-toggle="modal" data-bs-target="#commentModal">Оставить
                                     комментарий</a>
 
-
-
-
                             {% else %}
                                 <p>Для добавления комментария авторизуйтесь </p>
                             {% endif %}
                         </div>
                     </div>
-
                     {% if post.comment.all %}
-
-
-
-
-
-
                         <div class="comment_block">
                             <div class="container-fluid d-none d-lg-block">
                                 <div class="row">
                                     <div id="carouselExample" class="carousel slide ">
                                         <div class="carousel-inner">
-
-
                                             <div class="carousel-item active ">
                                                 <div class="container-fluid">
                                                     <div class="row">
@@ -187,8 +182,6 @@
                                                                            data-bs-target="#textComModal">
                                                                             {{ com.content|truncatechars:110 }}</a>
                                                                     </div>
-
-
 
 
                                                                     <div class="d-flex justify-content-between">

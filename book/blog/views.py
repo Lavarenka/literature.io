@@ -49,7 +49,10 @@ class GetPost(DetailView):
 
         context['form'] = CommentForm
         post = self.get_object()
-        context['series_book'] = post.series.post.filter(is_published=True).select_related().order_by('number_series')
+        try:
+            context['series_book'] = post.series.post.filter(is_published=True).select_related().order_by('number_series')
+        except:
+            context['series_book'] = None
 
 
 
@@ -167,9 +170,9 @@ class DelComment(View):
 
 class Search(ListView):
     """
-    Поиск
+    Search for icontains is case insensitive.
     """
-    template_name = "blog/search.html"
+    template_name = "blog/index.html"
     context_object_name = "posts"
     paginate_by = 20
 

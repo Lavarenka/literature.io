@@ -63,21 +63,15 @@
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Поиск</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <nav class="navbar bg-body-tertiary">
-                        <div class="container-fluid">
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search"
-                                       placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success"
-                                        type="submit">Search
-                                </button>
-                            </form>
+
+                <div class="modal-body ">
+                    <nav class="navbar bg-body-tertiary navbar_search">
+                        <div class="container-fluid ">
+                        <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
+                            <input class="form-control me-2" type="text" placeholder="Поиск..." name="s"
+                                   aria-label="Search">
+                            <button class="btn navbar_search__btn" type="submit">Поиск</button>
+                        </form>
                         </div>
                     </nav>
                 </div>

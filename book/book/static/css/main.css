@@ -191,11 +191,37 @@ main.main {
 .user_img_header {
     width: 38px;
     height: 38px;
-    overflow: hidden;
-    object-fit: cover;
+
 }
 
+.dropdown-menu{
+    background-color: #312B45;
+}
+.dropdown-menu a{
+    color: white;
+}
 
+.dropdown-menu div{
+    border-bottom: 1px solid white;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+.navbar_search{
+    background-color: #1f1b2e !important;
+}
+
+.navbar_search__btn{
+    color: white;
+    border: 1px solid white;
+}
+
+.navbar_search__btn:hover{
+    color: #1f1b2e;
+    border: 1px solid white;
+    background-color: white;
+}
 
 /* /Header  */
 
@@ -238,11 +264,13 @@ li, a {
     border: none;
 }
 
+
 .sidebar_filter__btn:hover,
 .sidebar_filter__btn:active,
 .sidebar_filter__btn:focus {
     background-color: #7D788EFF;
 }
+
 
 .sidebar_filter__dropdown {
     background-color: #312B45;
@@ -257,6 +285,8 @@ li, a {
     color: white;
     background-color: #312B45;
 }
+
+
 
 .but_sort {
     background-color: #312B45;

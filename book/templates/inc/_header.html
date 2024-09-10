@@ -62,7 +62,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link " data-bs-toggle="dropdown" href="#" role="button"
                                    aria-expanded="false">
-                                    <div class="user_img_header ">
+                                    <div class="user_img_header _ibg">
                                         {% if user.image %}
                                             <img
                                                     src="{{ user.image.url }}"
@@ -73,9 +73,10 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li>{{ user }}</li>
-                                    <hr>
-                                    <li><a class="dropdown-item" href="{% url 'profile' %}">Настройки</a></li>
+
+                                    <div>{{ user }}</div>
+
+                                    <li><a class="dropdown-item mt-2" href="{% url 'profile' %}">Настройки</a></li>
                                     <li><a class="dropdown-item" href="{% url 'logout' %}">Выход</a></li>
 
                                 </ul>
