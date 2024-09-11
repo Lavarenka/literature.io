@@ -1,7 +1,8 @@
 from django.contrib.auth import get_user_model
-from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
+
+from book import settings
 
 
 class Genre(models.Model):
@@ -119,4 +120,5 @@ class Comment(models.Model):
         ordering = ['-time_create']
         verbose_name = 'Комментарий'  # название блога в админке
         verbose_name_plural = 'Комментарии'  # название блога в админке во множественном числе
+
 

@@ -12,7 +12,7 @@ class Home(ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'posts'  # имя к которому обращатся в html
-    paginate_by = 20
+    paginate_by = 24
 
     def get_queryset(self):
         """
@@ -65,7 +65,7 @@ class PostGenre(ListView):
     """
     template_name = 'blog/index.html'
     context_object_name = 'posts'
-    paginate_by = 20
+    paginate_by = 24
     allow_empty = False  # ошибка при пустой категории
 
     def get_queryset(self):
@@ -84,7 +84,7 @@ class PostAuthor(ListView):
     """
     template_name = 'blog/index.html'
     context_object_name = 'posts'
-    paginate_by = 20
+    paginate_by = 24
     allow_empty = False  # ошибка при пустой категории
 
     def get_queryset(self):
@@ -122,7 +122,7 @@ class PostFilter(View):
 
     def get(self, request, *args, **kwargs):
         value = request.GET.get('sort')
-        print(self.request)
+
         if value:
             content = Post.objects.filter(is_published=True).order_by(value).reverse()
         else:
@@ -174,7 +174,7 @@ class Search(ListView):
     """
     template_name = "blog/index.html"
     context_object_name = "posts"
-    paginate_by = 20
+    paginate_by = 24
 
     def get_queryset(self):
         return Post.objects.filter(title__icontains=self.request.GET.get("s")).filter(is_published=True)

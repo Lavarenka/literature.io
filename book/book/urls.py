@@ -23,4 +23,6 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include('blog.urls')),
                   path('', include('users.urls')),
+                  path('', include('add_books.urls')),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
