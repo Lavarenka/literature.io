@@ -184,6 +184,10 @@ main.main {
     color: red!important;
 }
 
+.border_bottom{
+    border-bottom: 1px solid white;
+}
+
 /*  ОСНОНЫЕ */
 
 /* Header  */
@@ -206,7 +210,7 @@ main.main {
 }
 
 .dropdown-menu div {
-    border-bottom: 1px solid white;
+
     padding: 10px;
     color: white;
     text-align: center;
@@ -358,9 +362,19 @@ li, a {
 
 /* footer */
 
+.footer_image {
+
+}
+
 .message i {
     font-size: 20px;
     padding: 0 10px;
+}
+
+.fa_book {
+    font-size: 4em;
+    line-height: .03125em;
+    vertical-align: -.1875em;
 }
 
 /* /footer */

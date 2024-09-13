@@ -5,7 +5,7 @@
     <div class="container-fluid ">
         <div class="row header_row  d-flex align-items-center">
             <div class="col-lg-1 col order-lg-1 order-2 d-flex justify-content-center"><a
-                    href="{% url 'home' %}">book</a></div>
+                    href="{% url 'home' %}"><i class="fa-solid fa-book-open fa-2xl" style="color: #ffffff;"></i></a></div>
             <div class="col-lg col-1 order-lg-2 order-1 ">
                 <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
                     <div class="container-fluid">
@@ -72,9 +72,9 @@
                                         {% endif %}
                                     </div>
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu ">
 
-                                    <div>{{ user }}</div>
+                                    <div class="border_bottom">{{ user }}</div>
 
                                     <li><a class="dropdown-item mt-2" href="{% url 'profile' %}">Настройки</a></li>
                                     <li><a class="dropdown-item" href="{% url 'add_book' %}">Предложить книгу</a></li>

@@ -1,5 +1,4 @@
 
-
 .post_image {
     width: 230px;
     height: 370px;
@@ -80,20 +79,19 @@ h1::after {
 }
 
 
-.modal-content{
+.modal-content {
     background-color: #1f1b2e;
 }
 
-.post_characteristics__details{
+.post_characteristics__details {
     display: flex;
     flex: 1 1 auto;
 }
 
 .carousel-control-prev,
-.carousel-control-next{
+.carousel-control-next {
     width: auto;
 }
-
 
 
 /*  book  */
@@ -142,12 +140,45 @@ h1::after {
 
 }
 
-.main_item{
+.main_item {
     overflow: hidden;
     max-width: 154px;
 }
 
 
+.post_description {
+    text-indent: 20px;
+
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease 0s;
+    color: white;
+
+}
+
+a:hover .overlay {
+    background-color: #1f1b2e;
+    color: white;
+    padding: 20px;
+    display: block;
+
+
+    border-radius: 10px;
+}
 
 
 /*  /book  */
+
+.button_comment {
+    color: white;
+}
+
+.button_comment:hover {
+    color: #6c757d;
+}
