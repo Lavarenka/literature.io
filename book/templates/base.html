@@ -1,5 +1,6 @@
 {% load static %}
 {% load site_bar %}
+{% load icons_tag %}
 
 <!doctype html>
 <html lang="en">
@@ -117,10 +118,7 @@
             <hr>
             <div class="">
                 <div class="message float-end mb-4">
-                    <i class="fa-brands fa-telegram"></i>
-                    <i class="fa-brands fa-vk"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                    <i class="fa-brands fa-facebook"></i>
+                   {% get_social_icons %}
                 </div>
             </div>
         </div>

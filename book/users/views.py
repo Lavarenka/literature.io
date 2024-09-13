@@ -24,6 +24,8 @@ class RegisterUser(SuccessMessageMixin, CreateView):
     success_message = "Вы успешно зарегистрировались! Для входа в систему ,авторизуйтесь."
 
 
+
+
 class LoginUser(SuccessMessageMixin, LoginView):
     """
     авторизация

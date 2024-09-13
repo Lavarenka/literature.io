@@ -17,3 +17,7 @@ class AddBook(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Предложение'  # название блога в админке
+        verbose_name_plural = 'Предложение'  # название блога в админке во множественном числе

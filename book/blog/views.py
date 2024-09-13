@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View, CreateView
 from django.db.models import F
+from django.core.paginator import Paginator
 
 from blog.forms import CommentForm
 from blog.models import Post, Genre, Series, Comment, Author
@@ -117,18 +118,27 @@ class PostSeries(ListView):
         return context
 
 
-class PostFilter(View):
 
+class PostFilter(View):
 
     def get(self, request, *args, **kwargs):
         value = request.GET.get('sort')
+        page_number = request.GET.get('page', 1)  # Получаем номер страницы из GET-параметров
 
         if value:
             content = Post.objects.filter(is_published=True).order_by(value).reverse()
         else:
             content = Post.objects.filter(is_published=True)
 
-        return render(request, 'blog/index.html', {'posts': content})
+        # Создаем объект Paginator с количеством постов на странице
+        paginator = Paginator(content, 24)  # 10 постов на страницу
+
+        # Получаем нужную страницу
+        page_obj = paginator.get_page(page_number)
+
+        return render(request, 'blog/index.html', {'posts': page_obj})
+
+
 
 
 class CommentBook(SuccessMessageMixin, CreateView):

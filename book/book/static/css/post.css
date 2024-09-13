@@ -9,10 +9,11 @@
     overflow: hidden;
     object-fit: cover;
     transition: all 0.3s ease 0s;
-
+    border: 1px solid #1f1b2e;
     -webkit-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
+
 }
 
 .post_characteristics {

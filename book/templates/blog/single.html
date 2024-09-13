@@ -86,6 +86,10 @@
                 <div class="post_description my-2">
                     {{ post.content|safe }}
                 </div>
+            {% if post.origin  %}
+                <div class="">Источник: {{ post.origin }}</div>
+            {% endif %}
+                <div class=""></div>
                 <div class="text-end mb-3">
                     {% if post.file_book %}
                         <button type="button" class="btn   "><a href="{{ post.file_book.url }}">Скачать
@@ -94,57 +98,60 @@
 
                     {% endif %}
                 </div>
-            {% if post.series %}
-            	<div class="3floor">
-                    <div class="">
-                        <h2>Все книги серии:</h2>
-                    </div>
-                    <div class="d-flex flex-row  flex-wrap">
-                    {% if series_book %}
+                {% if post.series %}
+                    <div class="3floor">
+                        <div class="">
+                            <h2>Все книги серии:</h2>
+                        </div>
+                        <div class="d-flex flex-row  flex-wrap">
+                            {% if series_book %}
 
 
-                        {% for s in series_book %}
-                            <div class="main_item m-2 d-flex flex-column ">
-                                <div class="on-hover _ibg">
+                                {% for s in series_book %}
+                                    <div class="main_item m-2 d-flex flex-column ">
+                                        <div class="on-hover _ibg">
 
 
-                                    {% if post.photo_preview %}
-                                        <img src="{{ s.photo_preview.url }}" alt="{{ s.title }}">
-                                    {% else %}
-                                        <img src="{% static 'img/no_image.png' %}" alt="{{ s.title }}">
-                                    {% endif %}
+                                            {% if post.photo_preview %}
+                                                <img src="{{ s.photo_preview.url }}" alt="{{ s.title }}">
+                                            {% else %}
+                                                <img src="{% static 'img/no_image.png' %}" alt="{{ s.title }}">
+                                            {% endif %}
 
 
-                                    <a href="{{ post.get_absolute_url }}">
-                                        <div class="hidden-block d-flex justify-content-start align-items-end ">
-                                            <div class="p-2 d-flex flex-column justify-content-start ">
+                                            <a href="{{ post.get_absolute_url }}">
+                                                <div class="hidden-block d-flex justify-content-start align-items-end ">
+                                                    <div class="p-2 d-flex flex-column justify-content-start ">
 
-                                                <div class=""><p><i
-                                                        class="fa-solid fa-calendar-days fa-sm"></i> {{ s.year }}</p>
+                                                        <div class=""><p><i
+                                                                class="fa-solid fa-calendar-days fa-sm"></i> {{ s.year }}
+                                                        </p>
+                                                        </div>
+                                                        <div class=""><p><i
+                                                                class="fa-solid fa-at fa-sm"></i> {{ s.author }}</p>
+                                                        </div>
+                                                        <div class=""><p><i
+                                                                class="fa-solid fa-eye fa-sm"></i> {{ s.views }}</p>
+                                                        </div>
+
+
+                                                    </div>
                                                 </div>
-                                                <div class=""><p><i class="fa-solid fa-at fa-sm"></i> {{ s.author }}</p>
-                                                </div>
-                                                <div class=""><p><i class="fa-solid fa-eye fa-sm"></i> {{ s.views }}</p>
-                                                </div>
-
-
-                                            </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="mt-2 main_item__title text-center">
-                                    <a href="{{ s.get_absolute_url }}">Книга {{ s.number_series }}: {{ s.title }}</a>
+                                        <div class="mt-2 main_item__title text-center">
+                                            <a href="{{ s.get_absolute_url }}">Книга {{ s.number_series }}: {{ s.title }}</a>
 
-                                </div>
+                                        </div>
 
-                            </div>
+                                    </div>
 
-                        {% endfor %}
-                        {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
                     </div>
-
-                </div>
-            {% endif %}
+                {% endif %}
 
                 <div class="4floor">
                     <div class="d-flex justify-content-between">

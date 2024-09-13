@@ -42,12 +42,13 @@
                                 {{ f }}
                             </div>
 
-                            <div class="invalid-feedback">
+                            <div class="text_danger">
+                                <p></p>
                                 {{ f.errors }}
                             </div>
                         </div>
                     {% endfor %}
-                    <div class="user_img_preview ">
+                    <div class="user_img_preview _ibg rounded">
                         {% if user.image %}
                             <img
                                     src="{{ user.image.url }}"
@@ -56,13 +57,13 @@
                             <img src="{% static 'img/no-name.png' %}" alt="">
                         {% endif %}
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex my-2">
                         <input id="html" type="checkbox" class="me-2" required>
-                        <label for="html">капча</label>
+                        <label for="html">Вреенная капча</label>
                     </div>
 
-                    <a href="{% url 'password-change' %}">Изменить пароль</a>
-                    <button type="submit" class="btn btn_reg my-3">Сохранить</button>
+                    <p><a class="  " href="{% url 'password-change' %}">Изменить пароль</a></p>
+                    <button type="submit" class="btn navbar_search__btn my-3">Сохранить</button>
 
 
                 </form>

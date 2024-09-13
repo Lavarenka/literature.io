@@ -38,7 +38,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 @admin.register(Post)  # reg app
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'number_series', 'series', 'author', 'is_published', 'photo_preview')
+    list_display = ('id', 'title', 'number_series', 'series', 'author', 'is_published', 'photo_preview', 'origin')
     prepopulated_fields = {"slug": ("title",)}  # to automatically add a slug
     list_editable = ('is_published', )
     readonly_fields = ['views', ]

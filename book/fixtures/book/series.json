@@ -1,0 +1,58 @@
+[
+  {
+    "model": "blog.series",
+    "pk": 1,
+    "fields": {
+      "title": "Затерянные в тоннелях",
+      "slug": "zateryannye-v-tonnelyah"
+    }
+  },
+  {
+    "model": "blog.series",
+    "pk": 2,
+    "fields": {
+      "title": "Модификант",
+      "slug": "modifikant"
+    }
+  },
+  {
+    "model": "blog.series",
+    "pk": 3,
+    "fields": {
+      "title": "Преисподняя",
+      "slug": "preispodnyaya"
+    }
+  },
+  {
+    "model": "blog.series",
+    "pk": 4,
+    "fields": {
+      "title": "Гарри Поттер",
+      "slug": "garri-potter"
+    }
+  },
+  {
+    "model": "blog.series",
+    "pk": 5,
+    "fields": {
+      "title": "Tемный эльф",
+      "slug": "temnyj-elf"
+    }
+  },
+  {
+    "model": "blog.series",
+    "pk": 6,
+    "fields": {
+      "title": "Я - Сталкер",
+      "slug": "ya-stalker"
+    }
+  },
+  {
+    "model": "blog.series",
+    "pk": 7,
+    "fields": {
+      "title": "StarCraft",
+      "slug": "starcraft"
+    }
+  }
+]

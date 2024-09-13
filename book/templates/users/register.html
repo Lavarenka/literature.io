@@ -25,11 +25,25 @@
             {% if user.is_authenticated %}
                 <p>Для регистрации нужно выйти из аккаунта</p>
             {% else %}
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" >
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    <div class="">{{ form.non_field_errors }}</div>
+                    {% for f in form %}
+                        <div class="mb-3">
+                            <label for="{{ f.id_for_label }}"
+                                   class="col-sm-3 col-form-label">{{ f.label }}</label>
+                            <div class="col-sm">
+                                {{ f }}
+                            </div>
 
-                    <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
+                            <div class="text_danger">
+                                <p></p>
+                                {{ f.errors }}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <button type="submit" class="btn navbar_search__btn btn-block">Регистрация</button>
                 </form>
             {% endif %}
 

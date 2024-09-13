@@ -18,7 +18,7 @@ class RegisterUserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name','image', 'password1', 'password2']
+        fields = ['username', 'email', 'first_name', 'last_name', 'image', 'password1', 'password2']
         labels = {
             'email': 'E-mail',
             'first_name': 'Имя',
@@ -26,7 +26,6 @@ class RegisterUserForm(UserCreationForm):
             'image': 'Аватар',
 
         }
-
 
     def clean_email(self):
         """проверка на уникальность email"""
@@ -81,23 +80,11 @@ class ProfileUserForm(forms.ModelForm):
         }
 
 
-# class SuggestArticleForm(forms.ModelForm):
-#     """
-#     suggest article in user settings
-#     """
-#
-#     content = forms.CharField(
-#         widget=forms.Textarea(attrs={'class': 'form-control', 'id': 'comment_content',
-#                                      'placeholder': ' Предложить статью', 'style': "min-height: 100px"}))
-#     class Meta:
-#         model = SuggestArticle
-#         fields = ['content', ]
-
-
 class UserPasswordChangeForm(PasswordChangeForm):
     """
     смена пароля
     """
-    old_password = forms.CharField(label='Старый пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-    new_password1 = forms.CharField(label='Новый пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-    new_password2 = forms.CharField(label='Подтверждение пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    old_password = forms.CharField(label='Старый пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password1 = forms.CharField(label='Новый пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password2 = forms.CharField(label='Подтверждение пароля',
+                                    widget=forms.PasswordInput(attrs={'class': 'form-control'}))
