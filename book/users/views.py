@@ -31,9 +31,9 @@ class LoginUser(SuccessMessageMixin, LoginView):
     extra_context = {'title': 'Авторизация'}
     success_message = "Вы успешно авторизованы! "
 
-    def get_success_url(self):
-        # redirection
-        return reverse_lazy('home')
+    # def get_success_url(self):
+    #     # redirection
+    #     return reverse_lazy('home')
 
 class ProfileUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     """
@@ -76,7 +76,5 @@ def logout_user(request):
     it redirects to the main page
     """
     logout(request)
-    try:
-        return HttpResponseRedirect(reverse('home'))
-    except:
-        return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
+
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))

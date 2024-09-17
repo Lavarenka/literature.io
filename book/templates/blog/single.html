@@ -125,7 +125,7 @@
                                             {% endif %}
 
 
-                                            <a href="{{ post.get_absolute_url }}">
+                                            <a href="{{ s.get_absolute_url }}">
                                                 <div class="hidden-block d-flex justify-content-start align-items-end ">
                                                     <div class="p-2 d-flex flex-column justify-content-start ">
 
@@ -170,7 +170,16 @@
                                     комментарий</a>
 
                             {% else %}
-                                <p>Для добавления комментария авторизуйтесь </p>
+                                <div class="d-flex">
+                                <p class="px-2">Для добавления комментария: </p>
+                                <form action="{% url 'login' %}?next={{ request.path }}" method="post">
+                                    {% csrf_token %}
+
+
+                                    <input  type="submit" value="авторизуйтесь">
+                                </form>
+
+                                </div>
                             {% endif %}
                         </div>
                     </div>
@@ -194,7 +203,7 @@
                                                                     <div class="py-3 comment_item__text">
                                                                         <a href="">
                                                                             <div class="overlay">
-                                                                                {{ com.content}}
+                                                                                {{ com.content }}
                                                                             </div>
                                                                             {{ com.content|truncatechars:110 }}
                                                                         </a>
@@ -240,12 +249,12 @@
                                                                                                     <button type="button"
                                                                                                             class="btn btn-secondary"
                                                                                                             data-bs-dismiss="modal">
-                                                                                                        Close
+                                                                                                        Закрыть
                                                                                                     </button>
                                                                                                     <button type="button"
                                                                                                             class="btn btn-primary">
                                                                                                         <a
-                                                                                                                href="{% url 'delete_comment' com.pk %}">Delete</a>
+                                                                                                                href="{% url 'delete_comment' com.pk %}">Удалить</a>
                                                                                                     </button>
                                                                                                 </div>
                                                                                             </div>
@@ -301,7 +310,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Оставить комментарий</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                 </div>

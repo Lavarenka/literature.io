@@ -5,7 +5,8 @@
     <div class="container-fluid ">
         <div class="row header_row  d-flex align-items-center">
             <div class="col-lg-1 col order-lg-1 order-2 d-flex justify-content-center"><a
-                    href="{% url 'home' %}"><i class="fa-solid fa-book-open fa-2xl" style="color: #ffffff;"></i></a></div>
+                    href="{% url 'home' %}"><i class="fa-solid fa-book-open fa-2xl" style="color: #ffffff;"></i></a>
+            </div>
             <div class="col-lg col-1 order-lg-2 order-1 ">
                 <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
                     <div class="container-fluid">
@@ -80,11 +81,19 @@
                                     <li><a class="dropdown-item" href="{% url 'add_book' %}">Предложить книгу</a></li>
                                     <li><a class="dropdown-item" href="{% url 'logout' %}">Выход</a></li>
 
+
                                 </ul>
                             </li>
                         </ul>
                     {% else %}
-                        <a href="{% url 'login' %}"> <i class="fa-solid fa-key fa-xl"></i></a>
+                        <form action="{% url 'login' %}?next={{ request.path }}" method="post">
+                            {% csrf_token %}
+
+
+                            <button type="submit" class=" button_key"><i class="fa-solid fa_key fa-key fa-xl"></i>
+                            </button>
+                        </form>
+                        {#                                                <a  href="{% url 'login' %}"> <i class="fa-solid fa-key fa-xl"></i></a>#}
                     {% endif %}
                     {#                    <a href=""><i class="fa-solid fa-key fa-xl"></i></a>#}
                 </div>

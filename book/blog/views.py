@@ -45,6 +45,7 @@ class GetPost(DetailView):
         self.object.save()
         self.object.refresh_from_db()
 
+        context['title'] = Post.objects.get(pk=self.object.pk).title
         context['form'] = CommentForm
         post = self.get_object()  # to display all books in the series
         try:
@@ -136,7 +137,7 @@ class PostFilter(View):
         # We get the required page
         page_obj = paginator.get_page(page_number)
 
-        return render(request, 'blog/index.html', {'posts': page_obj})
+        return render(request, 'blog/index.html', {'posts': page_obj, 'title': 'Фильтр'})
 
 
 class CommentBook(SuccessMessageMixin, CreateView):
@@ -166,6 +167,7 @@ class DelComment(View):
     """
     delete comment
     """
+
     def get(self, request, **kwargs):
         pk = kwargs['pk']
         comment = Comment.objects.get(id=pk)

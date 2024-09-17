@@ -180,11 +180,11 @@ main.main {
     border: 1px solid red;
 }
 
-.errorlist li{
-    color: red!important;
+.errorlist li {
+    color: red !important;
 }
 
-.border_bottom{
+.border_bottom {
     border-bottom: 1px solid white;
 }
 
@@ -230,6 +230,21 @@ main.main {
     border: 1px solid white;
     background-color: white;
 }
+
+ .fa_key {
+/*    font-size: 1.5em;*/
+/*    line-height: .04167em;*/
+/*    display: inline-block;*/
+/*content: "\f002";*/
+/*    background-color: rgba(255, 0, 0, 0);*/
+    color: white;
+}
+
+ .button_key{
+     color: white;
+     background-color: rgba(255, 0, 0, 0);
+ }
+
 
 /* /Header  */
 
@@ -327,8 +342,8 @@ li, a {
     font-size: 16px;
 }
 
-.page-item_main a:hover{
-        background-color: white !important;
+.page-item_main a:hover {
+    background-color: white !important;
     color: #100e19 !important;
     border: 1px solid white !important;
     font-weight: bold;
@@ -343,7 +358,7 @@ li, a {
     font-size: 16px;
 }
 
-.user_img_preview{
+.user_img_preview {
     width: 153px;
     height: 235px;
 
