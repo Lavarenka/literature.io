@@ -1,18 +1,17 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-
 from .models import Genre, Comment, Series, Author, Post
 
 """
-настройка даминки статьи
-    list_display // отображение полей в статьи
-    list_display_links // кликабельность полей
-    ordering // сортировка записей для админки
-    list_editable // возможность редоктирования не входя в статью
-    РЕДАКТИРУЕМОЕ ПОЛЕ НЕ МОЖЕТ БЫТЬ КЛИКАБЕЛЬНЫМ
-    list_per_page // пагинация, отображение статей на админку
-    search_fields // поиск в базе 
-    list_filter // фильтр
+Admin panel settings:
+    list_display // display fields in articles
+    list_display_links // clickability of fields
+    ordering // sorting records for admin
+    list_editable // the ability to edit without entering the article
+    EDITABLE FIELD CANNOT BE CLICKABLE
+    list_per_page // pagination, displaying articles on the admin panel
+    search_fields // search in the database
+    list_filter // filter
 """
 
 
@@ -40,17 +39,17 @@ class AuthorAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'number_series', 'series', 'author', 'is_published', 'photo_preview', 'origin')
     prepopulated_fields = {"slug": ("title",)}  # to automatically add a slug
-    list_editable = ('is_published', )
+    list_editable = ('is_published',)
     readonly_fields = ['views', ]
     list_display_links = ('id', 'title')
-    search_fields = ('title', )
-    list_filter = ('is_published', )
+    search_fields = ('title',)
+    list_filter = ('is_published',)
 
-    save_on_top = True  # кнопки сохранить сверху и снизу
+    save_on_top = True  # save buttons at the top and bottom
 
     @admin.display(description='Фото_превью', ordering='content')
     def post_photo(self, obj):
-        """отображение фото в статьях"""
+        """ display photos in articles """
         if obj.photo_preview:
             return mark_safe(f"<img src='{obj.photo_preview.url}' width=50")
         return 'без фото '

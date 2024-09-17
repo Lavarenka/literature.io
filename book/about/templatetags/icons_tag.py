@@ -1,7 +1,6 @@
 from django import template
 from about.models import SocialItem
 
-
 register = template.Library()
 
 

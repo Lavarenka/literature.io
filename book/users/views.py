@@ -1,21 +1,17 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views import View
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import *
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
-from blog.models import Post
+from .forms import RegisterUserForm, LoginUserForm, ProfileUserForm, UserPasswordChangeForm
+from .models import User
 
 
 class RegisterUser(SuccessMessageMixin, CreateView):
     """
-
+    user registration
     """
     form_class = RegisterUserForm
     template_name = "users/register.html"
@@ -28,7 +24,7 @@ class RegisterUser(SuccessMessageMixin, CreateView):
 
 class LoginUser(SuccessMessageMixin, LoginView):
     """
-    авторизация
+    user authorization
     """
     form_class = LoginUserForm
     template_name = 'users/login.html'
@@ -36,13 +32,12 @@ class LoginUser(SuccessMessageMixin, LoginView):
     success_message = "Вы успешно авторизованы! "
 
     def get_success_url(self):
-        # перенапровление
+        # redirection
         return reverse_lazy('home')
 
 class ProfileUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     """
-    Profile user
-
+    user profile
     """
     model = User
     form_class = ProfileUserForm
@@ -65,7 +60,7 @@ class ProfileUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
 class UserPasswordChange(SuccessMessageMixin, PasswordChangeView):
     """
-    смена пароля
+    change password
     """
     form_class = UserPasswordChangeForm
     success_url = reverse_lazy("profile")
