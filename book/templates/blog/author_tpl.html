@@ -1,11 +1,29 @@
+{#<ul class="dropdown-menu sidebar_filter__dropdown">#}
+{#    <li class="row   p-2  d-flex flex-column  ">#}
+{#        {% if  authors %}#}
+{#            <div class="align-content-start flex-wrap  d-flex ">#}
+{#                {% for item in authors %}#}
+{#                    <a href="{{ item.get_absolute_url }}" class="m-2">{{ item.title }} </a>#}
+{#                {% endfor authors %}#}
+{#            </div>#}
+{#        {% endif %}#}
+{#    </li>#}
+{#</ul>#}
+
+
 <ul class="dropdown-menu sidebar_filter__dropdown">
-    <li class="row   p-2  d-flex flex-column  ">
+    <li class="p-2  d-flex flex-row ">
         {% if  authors %}
-            <div class="align-content-start flex-wrap  d-flex ">
+            <div class=" flex-column  d-flex ">
+
                 {% for item in authors %}
-                    <a href="{{ item.get_absolute_url }}" class="m-2">{{ item.title }} </a>
+                    <a href="{{ item.get_absolute_url }}" class=" text-start my-1 text-nowrap">{{ item.title }} </a>
+                    {% if forloop.counter|divisibleby:6 and not forloop.last %}
+                        </div>
+                        <div class=" flex-column  d-flex ">
+                    {% endif %}
                 {% endfor authors %}
-            </div>
+                </div>
         {% endif %}
     </li>
 </ul>

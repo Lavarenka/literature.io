@@ -41,9 +41,9 @@ class GetPost(DetailView):
         for the number of views
         """
         context = super().get_context_data(**kwargs)
-        self.object.views = F('views') + 1
-        self.object.save()
-        self.object.refresh_from_db()
+        self.object.views = F('views') + 1  # expression: db level position
+        self.object.save()  # save db
+        self.object.refresh_from_db()  # requesting new data
 
         context['title'] = Post.objects.get(pk=self.object.pk).title
         context['form'] = CommentForm
@@ -180,7 +180,7 @@ class Search(ListView):
     """
     Search for icontains is case insensitive.
     """
-    template_name = "blog/index.html"
+    template_name = "blog/search.html"
     context_object_name = "posts"
     paginate_by = 24
 
@@ -191,5 +191,5 @@ class Search(ListView):
         context = super().get_context_data(**kwargs)
 
         context['title'] = 'Поиск'
-        context['s'] = f"s={self.request.GET.get('s')}&"
+        context['s'] = f"s={self.request.GET.get('s')}&"  # for paginate
         return context

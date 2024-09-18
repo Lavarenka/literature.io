@@ -28,6 +28,7 @@
 
         <div class="main_book">
             <div class="container-fluid ">
+                <!-- post header -->
                 <div class=" 1floor ">
                     <div class="container-fluid">
                         <div class="d-flex flex-column flex-md-row">
@@ -84,15 +85,18 @@
                     </div>
 
                 </div>
+                <!-- /post header -->
 
-                <!--  -->
+                <!-- post description -->
                 <div class="post_description fs-5 my-2">
                     {{ post.content|safe }}
                 </div>
                 {% if post.origin %}
                     <div class="">Источник: {{ post.origin }}</div>
                 {% endif %}
+                <!-- /post description -->
 
+                <!-- text -->
                 <div class="text-end mb-3">
                     {% if post.file_book %}
                         <a href="{{ post.file_book.url }}">
@@ -104,6 +108,9 @@
 
                     {% endif %}
                 </div>
+                <!-- /text -->
+
+                <!-- post series -->
                 {% if post.series %}
                     <div class="3floor">
                         <div class="">
@@ -158,8 +165,10 @@
 
                     </div>
                 {% endif %}
+                <!-- /post series -->
 
-                <div class="4floor">
+                <!-- post comment -->
+                <div class="main_comment">
                     <div class="d-flex justify-content-between">
                         <div class="">
                             <h2>Комментарии: {{ post.comment.all.count }}</h2>
@@ -171,13 +180,13 @@
 
                             {% else %}
                                 <div class="d-flex">
-                                <p class="px-2">Для добавления комментария: </p>
-                                <form action="{% url 'login' %}?next={{ request.path }}" method="post">
-                                    {% csrf_token %}
+                                    <p class="px-2">Для добавления комментария: </p>
+                                    <form action="{% url 'login' %}?next={{ request.path }}" method="post">
+                                        {% csrf_token %}
 
 
-                                    <input  type="submit" value="авторизуйтесь">
-                                </form>
+                                        <input type="submit" value="авторизуйтесь">
+                                    </form>
 
                                 </div>
                             {% endif %}
@@ -300,6 +309,7 @@
                         </div>
                     {% endif %}
                 </div>
+                <!-- /post comment -->
             </div>
         </div>
     </main>

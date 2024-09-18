@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load site_bar %}
+{% load popular_post %}
+
+{% block content %}
+
+    <main class="main m-xxl-0 mx-2">
+        <!-- Carousel -->
+        {% get_popular %}
+        <!-- /Carousel -->
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb_main mt-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                    {% if title != 'Главная' %}
+                        <li class="breadcrumb-item">{{ title }}</li>
+                    {% endif %}
+                </ol>
+            </nav>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- description -->
+        <div class="main_description ">
+            <div class="main_description__title">
+                <h1>Добро пожаловать в мир книг!</h1>
+            </div>
+            <div class="main_description__content">
+                <p> Наш сайт — это уютное пространство для всех любителей литературы. Здесь вы найдете разнообразные
+                    жанры: от классики до современного фэнтези, от захватывающих детективов до вдохновляющих биографий.
+                    Мы предлагаем тщательно отобранные книги, которые обогатят ваш внутренний мир и подарят незабываемые
+                    эмоции.</p>
+                <p>Погружайтесь в мир литературы вместе с нами! Ваши новые приключения начинаются здесь.</p>
+            </div>
+        </div>
+        <!-- /description -->
+
+        <!--  -->
+        <!-- / -->
+
+        <!-- site bar filter -->
+        <div class="sidebar mb-3">
+            <div class="sidebar__main ">
+                <div class="row sidebar_main__filter ">
+                    <div class="col-md col-12 m-md-0 mb-2">
+                        <div class=" dropdown sidebar_filter">
+                            <button class="btn w-100 dropdown-toggle  sidebar_filter__btn" type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                Жанры
+                            </button>
+
+                            <!-- genres -->
+                            {% show_genre %}
+                            <!-- /genres -->
+
+                        </div>
+                    </div>
+                    <div class="col-md col-12 m-md-0 mb-2">
+                        <div class=" dropdown sidebar_filter">
+                            <button class="btn w-100 dropdown-toggle sidebar_filter__btn" type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                Авторы
+                            </button>
+                            <!-- authors -->
+                            {% show_author %}
+                            <!-- /authors -->
+                        </div>
+                    </div>
+                    <div class="col-md col-12 m-md-0 mb-2">
+                        <div class=" dropdown sidebar_filter">
+                            <button class="btn w-100 dropdown-toggle sidebar_filter__btn" type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                Серии книг
+                            </button>
+                            <!-- series -->
+                            {% show_series %}
+                            <!-- /series -->
+
+                        </div>
+                    </div>
+                    <div class="col-md col-12 m-md-0 mb-2">
+                        <div class=" dropdown sidebar_filter">
+                            <button class="btn w-100 dropdown-toggle sidebar_filter__btn" type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                Сортировка
+                            </button>
+                            <ul class="dropdown-menu sidebar_filter__dropdown">
+                                <li class="row p-2">
+                                    <form action="{% url 'sorted' %}" method="get">
+                                        <div class="col flex-column d-flex">
+
+                                            <button class="but_sort m-2" type="submit" name="sort" value="views">
+                                                Популярные
+                                            </button>
+                                            <button class="but_sort m-2" type="submit" name="sort" value="time_create">
+                                                Новые
+                                            </button>
+                                            <button class="but_sort m-2" type="submit" name="sort" value="-time_create">
+                                                Старые
+                                            </button>
+                                            <button class="but_sort m-2" type="submit" name="sort" value="year">Год
+                                                выпуска
+                                            </button>
+
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row sidebar_main__tag my-3">
+                    {#                    <div class="d-flex">#}
+                    {#                        <a href="">#}
+                    {#                            <div class="tag me-3">Популярные</div>#}
+                    {#                        </a>#}
+                    {#                    </div>#}
+
+                </div>
+                <div class="close_filter">
+                    <a href="{% url 'home' %}">
+                        <i class="fa-regular fa-circle-xmark "></i>
+                        Сбросить фильтры</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- /site bar filter -->
+
+        <div class="main_book">
+            <div class="container-fluid ">
+                <div class="d-flex flex-row  flex-wrap">
+                    {% for post  in posts %}
+                        <div class="main_item m-2 d-flex flex-column ">
+                            {% include 'inc/_card.html' %} <!-- card -->
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <div class="my-2 d-flex justify-content-center ">
+
+        {% if paginator.num_pages  > 1 %}
+            <ul class="pagination ">
+                {% if page_obj.has_previous %}
+                    <li class="page-item page-item_main">
+                        <a class="page-link" href="?{{ s }}page={{ page_obj.previous_page_number }}"
+                           aria-label="Предыдущая">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% for p in paginator.page_range %}
+                    {% if page_obj.number == p %}
+                        <li class="page-item active page-item_main_a" aria-current="page">
+                            <span class="page-link">{{ p }}</span>
+                        </li>
+                    {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                        <li class="page-item page-item_main"><a class="page-link"
+                                                                href="?{{ s }}page={{ p }}">{{ p }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item page-item_main">
+                        <a class="page-link" href="?{{ s }}page={{ page_obj.next_page_number }}" aria-label="Следующая">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
