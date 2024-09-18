@@ -28,6 +28,7 @@
             <div class="">
                 <form method="post">
                     {% csrf_token %}
+
                     <input type="hidden" name="next" , value="{{ next }}"/>
                     {{ form.non_field_errors }}
                     {% for f in form %}

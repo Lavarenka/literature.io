@@ -137,7 +137,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+LOGIN_URL = 'login'  # redirect to a non-existent site if the user is not authorized
 
 # авторизация по логину и мылу
 # AUTHENTICATION_BACKENDS = [

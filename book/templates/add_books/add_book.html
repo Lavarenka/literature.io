@@ -22,8 +22,8 @@
 
     <div class="main_book">
         <div class="container-fluid ">
-
-            <form action="{% url 'add_book' %}" method="get">
+            {% if user.is_authenticated %}
+            	<form action="{% url 'add_book' %}" method="get">
 
                 <input type="hidden" id="mail" name="mail" value="{{ user.email }}">
                 <!-- hidden field that sends the user's email -->
@@ -47,6 +47,11 @@
                 <button type="submit" class="btn but_sort">Отправить</button>
 
             </form>
+            {% else %}
+            	<p>Для добавления книги авторизуйтесь</p>
+            {% endif %}
+
+
 
         </div>
     </div>

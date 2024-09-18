@@ -25,8 +25,9 @@
             {% if user.is_authenticated %}
                 <p>Для регистрации нужно выйти из аккаунта</p>
             {% else %}
-                <form method="post" enctype="multipart/form-data" >
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+                    <input type="hidden" name="next" , value="{{ next }}"/>
                     <div class="">{{ form.non_field_errors }}</div>
                     {% for f in form %}
                         <div class="mb-3">

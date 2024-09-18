@@ -2,6 +2,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -16,7 +17,7 @@ class RegisterUser(SuccessMessageMixin, CreateView):
     form_class = RegisterUserForm
     template_name = "users/register.html"
     extra_context = {"title": "Регистрация"}
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('home')
     success_message = "Вы успешно зарегистрировались! Для входа в систему ,авторизуйтесь."
 
 
@@ -31,9 +32,8 @@ class LoginUser(SuccessMessageMixin, LoginView):
     extra_context = {'title': 'Авторизация'}
     success_message = "Вы успешно авторизованы! "
 
-    # def get_success_url(self):
-    #     # redirection
-    #     return reverse_lazy('home')
+
+
 
 class ProfileUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     """
@@ -50,7 +50,9 @@ class ProfileUser(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         """
         redirect to profile
         """
+
         return reverse_lazy('profile')
+
 
     def get_object(self, queryset=None):
         """
@@ -78,3 +80,5 @@ def logout_user(request):
     logout(request)
 
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
+
+
