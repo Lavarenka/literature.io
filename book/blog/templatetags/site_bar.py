@@ -8,7 +8,10 @@ register = template.Library()
 
 @register.inclusion_tag('blog/genre_tpl.html')
 def show_genre(genre_class='genre'):
-    """ displays genres in the sidebar """
+    """
+    displays genres in the sidebar
+    genre_class // variable for css
+    """
     genres = Genre.objects.filter(genre__is_published=True).annotate(total=Count('genre'))
     return {"genres": genres, "genre_class": genre_class}
 
