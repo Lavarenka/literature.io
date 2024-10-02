@@ -11,6 +11,7 @@ Literature - уютное местечко для любителей почит�
 Проект поднимается в докере. Подключен nginx, в качестве БД выбрана postgreSQL.
 
 http://77.223.99.82
+<a href="http://77.223.99.82" target="_blank"> literature.com </a>
 
 ![Python](https://img.shields.io/badge/-Python-black?style=flat-square&logo=Python)
 ![Django](https://img.shields.io/badge/-Django-0aad48?style=flat-square&logo=Django)
